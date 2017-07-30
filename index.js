@@ -6,6 +6,6 @@ app.get('/',  (req, res) => {
 	res.sendfile('./src/index.html');
 });
 
-server.listen(80,  () => {
+server.listen(8080,  () => {
   console.log('Example app listening on port 80!');
 });
