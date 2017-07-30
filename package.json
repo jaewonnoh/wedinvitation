@@ -1,0 +1,26 @@
+{
+  "name": "wedinvitation",
+  "version": "1.0.0",
+  "description": "청첩장 프로젝트~",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaewonnoh/wedinvitation.git"
+  },
+  "author": "Jaewon Noh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaewonnoh/wedinvitation/issues"
+  },
+  "homepage": "https://github.com/jaewonnoh/wedinvitation#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "vue": "^2.4.2"
+  },
+  "devDependencies": {
+    "webpack": "^3.4.1"
+  }
+}
