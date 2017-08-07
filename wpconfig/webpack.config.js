@@ -1,12 +1,24 @@
-let path = require('path')
+const 
+	path = require('path'),
+	webpack = require('webpack');
 
 module.exports = {
-	entry: {
-		app: path.join(__dirname, '..', '/src/entry.js')
-	},
+	entry: [
+		path.join(__dirname, '../src/entry.js'),
+		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
+	],
 	output: {
 		filename: 'src/bundle.js'
 	},
+	resolve: {
+		extensions: ['.js', '.vue', '.json'],
+		alias: {
+			'vue$': 'vue/dist/vue.esm.js'
+		}
+	},
+	plugins: [
+		new webpack.HotModuleReplacementPlugin()
+	],
 	module: {
 		rules: [
 			{

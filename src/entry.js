@@ -1,4 +1,7 @@
-import hello from './assets/hello.js';
-import world from './assets/world.js';
+import Vue from 'vue';
+import basement from './assets/basement.vue';
 
-document.write(`${hello}, ${world}!`);
+const app = new Vue({
+	el: '#JW',
+	components: { basement }
+});
