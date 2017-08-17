@@ -21,7 +21,7 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler));
 
 app.get('/',  (req, res) => {
-	res.sendfile('./src/index.html');
+	res.sendFile(path.join(__dirname, './src/index.html'));
 });
 
 app.use('/src', express.static(__dirname + '/src'));
