@@ -2,12 +2,11 @@
 	<div class="wrapper">
 		<div class="main">
 			<div class="img">
-				<div class="person">
-					<div class="jw-eyes"></div>
-					<div class="closed-jw-eyes"></div>
-					<div class="mj-eyes"></div>
-					<div class="closed-mj-eyes"></div>
-				</div>
+				<div class="person"></div>
+				<div class="jw-eyes"></div>
+				<div class="closed-jw-eyes"></div>
+				<div class="mj-eyes"></div>
+				<div class="closed-mj-eyes"></div>
 				<div class="stars s1"></div>
 				<div class="stars s2"></div>
 				<div class="stars s3"></div>
@@ -84,8 +83,10 @@
 			closeEyes: function (target, cnt) {
 				const that = this;
 				target.classList.add('hide');
+				target.nextSibling.classList.add('show');
 				setTimeout(function () {
 					target.classList.remove('hide');
+					target.nextSibling.classList.remove('show');
 					cnt--;
 					if (cnt > 0) {
 						setTimeout(function () {
@@ -187,7 +188,7 @@
 
 		background-image: url('/src/img/jw_eyes1.svg');
 
-		z-index: 2;
+		z-index: 11;
 	}
 
 	.jw-eyes.hide {
@@ -205,7 +206,11 @@
 		background-image: url('/src/img/jw_eyes2.svg');	
 		background-repeat: no-repeat;
 
-		z-index: 1;
+		z-index: 9;
+	}
+
+	.closed-jw-eyes.show {
+		z-index: 11;
 	}
 
 	.mj-eyes {
@@ -219,7 +224,7 @@
 		position:absolute;
 		background-image: url('/src/img/mj_eyes1.svg');
 
-		z-index: 2;
+		z-index: 11;
 	}
 
 	.mj-eyes.hide {
@@ -236,7 +241,11 @@
 
 		background-image: url('/src/img/mj_eyes2.svg');
 
-		z-index: 1;
+		z-index: 9;
+	}
+
+	.closed-mj-eyes.show {
+		z-index: 11;
 	}
 
 	.stars {
