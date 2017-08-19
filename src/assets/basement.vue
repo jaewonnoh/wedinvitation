@@ -3,6 +3,14 @@
 		<div class="main">
 			<div class="img">
 				<div class="person"></div>
+				<div class="stars s1"></div>
+				<div class="stars s2"></div>
+				<div class="stars s3"></div>
+				<div class="stars s4"></div>
+				<div class="stars s5"></div>
+				<div class="stars s6"></div>
+				<div class="stars s7"></div>
+				<div class="stars s8"></div>
 			</div>
 			<div class="content">
 				<span class="date">2017.11.04(토) 12:00PM</span>
@@ -82,11 +90,8 @@
 				this.$el.querySelector('.popup').classList.add('show');
 			},
 			hidePopup: function () {
-				const that = this;
 				this.$el.querySelector('.popup').classList.remove('show');
-				setTimeout(function() {
-					that.$el.querySelector('.main').classList.remove('hide');
-				}, 200)
+				this.$el.querySelector('.main').classList.remove('hide');
 			}
 		}
 	};
@@ -124,6 +129,97 @@
 		height: 100%;
 
 		background-image: url('/src/img/invitation_img.svg');
+	}
+
+	.stars {
+		position: absolute;
+
+		background-image: url('/src/img/star.svg');
+		background-size: 100%;
+
+		animation-name: blink;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-duration: 0.8s;
+		animation-direction: alternate;
+	}
+
+	.s1 {
+		top: 22px;
+		left: 25px;
+
+		width: 9px;
+		height: 9px;	
+	}
+
+	.s2 {
+		top: 24px;
+		left: 103px;
+
+		width: 5px;
+		height: 5px;	
+
+		animation-delay: 0.2s;
+	}
+
+	.s3 {
+		top: 23px;
+		right: 34px;
+
+		width: 7px;
+		height: 7px;	
+
+		animation-delay: 0.8s;
+	}
+
+	.s4 {
+		top: 60px;
+		left: 16px;
+
+		width: 5px;
+		height: 5px;	
+
+		animation-delay: 0.5s;
+	}
+
+	.s5 {
+		top: 44px;
+		right: 10px;
+
+		width: 9px;
+		height: 9px;	
+
+		animation-delay: 0.2s;
+	}
+
+	.s6 {
+		top: 84px;
+		left: 51px;
+
+		width: 7px;
+		height: 7px;	
+
+		animation-delay: 0.7s;
+	}
+
+	.s7 {
+		top: 87px;
+		right: 115px;
+
+		width: 5px;
+		height: 5px;	
+
+		animation-delay: 0.3s;
+	}
+
+	.s8 {
+		top: 85px;
+		right: 32px;
+
+		width: 5px;
+		height: 5px;	
+
+		animation-delay: 0.1s;
 	}
 
 	.content {
@@ -284,23 +380,13 @@
 		background-image: url('/src/img/icon_arrow.svg');
 	}
 
-	@keyframes aa {
-		from {
-			transform: translate(100%, 100%);
-		}
-
-		to {
-			transform: translate(1500px, 500px);
-		}
-	}
-
 	@keyframes blink {
 		from {
-			transform: scale(0);
+			transform: scale(1);
 		}
 
 		to {
-			transform: scale(1);
+			transform: scale(0.5);
 		}
 	}
 
@@ -322,8 +408,6 @@
 		opacity: 0;
 
 		z-index: -1;
-
-		transition: top 0.2s ease-in, opacity 0.1s linear;
 	}
 
 	.popup.show {
