@@ -184,7 +184,7 @@
 
 	.s5 {
 		top: 44px;
-		right: 10px;
+		right: 15px;
 
 		width: 9px;
 		height: 9px;	
@@ -235,6 +235,7 @@
 		color: #4b5262;
 		font-size: 14px;
 		text-align: left;
+		line-height: 1;
 
 		margin-right: 6px;
 	}
@@ -244,6 +245,7 @@
 		color: #4b5262;
 		font-size: 14px;
 		text-align: left;
+		line-height: 1;
 	}
 
 	.greeting {
@@ -277,6 +279,7 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansMedium;
+		line-height: 1;
 
 		margin-bottom: 12px;
 	}
@@ -285,6 +288,7 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansLight;
+		line-height: 1;
 
 		margin-bottom: 12px;	
 	}
@@ -293,6 +297,7 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansLight;
+		line-height: 1;
 
 		text-decoration: underline;
 	}
@@ -308,6 +313,7 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansMedium;
+		line-height: 1;
 
 		margin-top: 30px;
 		margin-bottom: 10px;
@@ -317,12 +323,14 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansLight;
+		line-height: 1;
 	}
 
 	.bus-name {
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansMedium;
+		line-height: 1;
 
 		margin-top: 20px;
 		margin-bottom: 10px;
@@ -332,12 +340,14 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansLight;
+		line-height: 1;
 	}
 
 	.parking-name {
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansMedium;
+		line-height: 1;
 
 		margin-top: 20px;
 		margin-bottom: 10px;
@@ -347,6 +357,7 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansLight;
+		line-height: 1;
 
 		margin-bottom: 8px;
 	}
@@ -355,12 +366,14 @@
 		font-size: 12px;
 		color: #4b5262;
 		font-family: NotoSansLight;
+		line-height: 1;
 	}
 
 	.publick-parking-area-link {
 		font-size: 14px;
 		color: #ff8f98;
 		font-family: NotoSansLight;
+		line-height: 1;
 		line-height: 14px;
 
 		margin-top: 20px;
@@ -382,11 +395,11 @@
 
 	@keyframes blink {
 		from {
-			transform: scale(1);
+			transform: scale(1.2);
 		}
 
 		to {
-			transform: scale(0.5);
+			transform: scale(0);
 		}
 	}
 
@@ -431,6 +444,7 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansMedium;
+		line-height: 1;
 
 		margin-top: 20px;
 		margin-bottom: 10px;
@@ -440,6 +454,7 @@
 		font-size: 14px;
 		color: #4b5262;
 		font-family: NotoSansLight;
+		line-height: 1;
 
 		margin-bottom: 40px;
 	}
