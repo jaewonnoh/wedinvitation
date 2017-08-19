@@ -3,6 +3,14 @@
 		<div class="img">
 			<div class="person"></div>
 		</div>
+		<div class="content">
+			<section class="greeting-wapper">
+				<span class="date">2017.11.04(토) 12:00PM</span>
+				<span class="location">세븐스프링스 목동점</span>
+				<span class="greeting">평생을 같이하고 싶은 사람을 만나 한 가정을 이루게 되었습니다. 오셔서 저희의 시작을 지켜봐 주시고 축하해 주시면 감사하겠습니다.</span>
+			</section>
+		</div>
+		<div class="divider"></div>
 	</div>
 </template>
 
@@ -29,13 +37,11 @@
 
 		width: 100%;
 
-		background-color: rgba(222, 222, 222, 0.5);
-
 		margin: 0 auto;
 
 		overflow: hidden;
 
-		max-width: 540px;
+		max-width: 320px;
 	}
 
 	.img {
@@ -51,26 +57,55 @@
 		background-image: url('/src/img/invitation_img.svg');
 	}
 
-	.ani {
-		position: absolute;
-		top: -1%;
-		left: -3%;
+	.content {
+		margin-top: 28px;
 
-		transform: translate(-50%, -50%);
+		padding: 0 16px;
 
-		width: 1%;
-		height: 0.5%;
-
-		animation: aa 10s linear infinite normal;
+		text-align: center;
 	}
 
-	.fl {
-		width: 100%;
-		height: 100%;
+	.date {
+		display: inline-block;
 
-		background: red;
+		font-family: NotoSansBold;
+		color: #4b5262;
+		font-size: 14px;
+		text-align: left;
 
-		animation: blink 0.5s linear infinite alternate;
+		margin-right: 6px;
+	}
+
+	.location {
+		display: inline-block;
+
+		font-family: NotoSansRegular;
+		color: #4b5262;
+		font-size: 14px;
+		text-align: left;
+	}
+
+	.greeting {
+		display: inline-block;
+
+		width: 261px;
+
+		font-family: NotoSansLight;
+		color: #7d8daa;
+		font-size: 14px;
+		text-align: left;
+		line-height: 1.6;
+
+		margin-top: 21px;
+	}
+
+	.divider {
+		width: 288px;
+		height: 0;
+
+		border-top: 2px dotted #dcdcdc;
+
+		margin: 29.8px auto 0 auto;
 	}
 
 	@keyframes aa {
