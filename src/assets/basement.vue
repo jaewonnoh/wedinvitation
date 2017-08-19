@@ -2,7 +2,12 @@
 	<div class="wrapper">
 		<div class="main">
 			<div class="img">
-				<div class="person"></div>
+				<div class="person">
+					<div class="jw-eyes"></div>
+					<div class="closed-jw-eyes"></div>
+					<div class="mj-eyes"></div>
+					<div class="closed-mj-eyes"></div>
+				</div>
 				<div class="stars s1"></div>
 				<div class="stars s2"></div>
 				<div class="stars s3"></div>
@@ -57,11 +62,38 @@
 <script>
 	export default {
 		name: 'basement',
-		mounted: function() {
+		mounted: function () {
+			this.setEyesAnimation();
 			this.setMap();
 			this.setMap2();
 		},
 		methods: {
+			setEyesAnimation: function () {
+				const that = this;
+
+				const jw = setInterval(function () {
+					that.closeEyes(that.$el.querySelector('.jw-eyes'), 1);
+				}, 2000);
+
+				setTimeout(function () {
+					const mj = setInterval(function () {
+						that.closeEyes(that.$el.querySelector('.mj-eyes'), 2);
+					}, 2000);	
+				}, 1000);
+			},
+			closeEyes: function (target, cnt) {
+				const that = this;
+				target.classList.add('hide');
+				setTimeout(function () {
+					target.classList.remove('hide');
+					cnt--;
+					if (cnt > 0) {
+						setTimeout(function () {
+							that.closeEyes(target, cnt);
+						}, 100);
+					}
+				}, 100);
+			},
 			setMap: function () {
 				const container = this.$el.querySelector('.map'),
 					options = {
@@ -143,6 +175,68 @@
 		background-image: url('/src/img/invitation_img.svg');
 
 		z-index: 10;
+	}
+
+	.jw-eyes {
+		position:absolute;
+		top: 130px;
+		left: 112px;
+
+		width: 32px;
+		height: 16px;
+
+		background-image: url('/src/img/jw_eyes1.svg');
+
+		z-index: 2;
+	}
+
+	.jw-eyes.hide {
+		display: none;
+	}
+
+	.closed-jw-eyes {
+		position:absolute;
+		top: 130px;
+		left: 112px;
+
+		width: 32px;
+		height: 16px;
+
+		background-image: url('/src/img/jw_eyes2.svg');	
+		background-repeat: no-repeat;
+
+		z-index: 1;
+	}
+
+	.mj-eyes {
+		position:absolute;
+		top: 169px;
+		right: 78px;
+
+		width: 30px;
+		height: 15px;
+
+		position:absolute;
+		background-image: url('/src/img/mj_eyes1.svg');
+
+		z-index: 2;
+	}
+
+	.mj-eyes.hide {
+		display: none;
+	}
+
+	.closed-mj-eyes {
+		position:absolute;
+		top: 169px;
+		right: 78px;
+
+		width: 30px;
+		height: 15px;
+
+		background-image: url('/src/img/mj_eyes2.svg');
+
+		z-index: 1;
 	}
 
 	.stars {
