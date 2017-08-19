@@ -151,11 +151,11 @@
 		background-image: url('/src/img/star.svg');
 		background-size: 100%;
 
-		animation-name: blink;
+		/*animation-name: blink;
 		animation-timing-function: ease-in-out;
 		animation-iteration-count: infinite;
 		animation-duration: 0.8s;
-		animation-direction: alternate;
+		animation-direction: alternate;*/
 	}
 
 	.s1 {

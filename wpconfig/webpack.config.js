@@ -4,8 +4,8 @@ const
 
 module.exports = {
 	entry: [
-		path.join(__dirname, '../src/entry.js'),
-		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
+		path.join(__dirname, '../src/entry.js')
+		// 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
 	],
 	output: {
 		filename: 'src/bundle.js'
@@ -16,9 +16,9 @@ module.exports = {
 			'vue$': 'vue/dist/vue.esm.js'
 		}
 	},
-	plugins: [
-		new webpack.HotModuleReplacementPlugin()
-	],
+	// plugins: [
+	// 	new webpack.HotModuleReplacementPlugin()
+	// ],
 	module: {
 		rules: [
 			{
