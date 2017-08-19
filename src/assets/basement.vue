@@ -321,6 +321,8 @@
 
 		opacity: 0;
 
+		z-index: -1;
+
 		transition: top 0.2s ease-in, opacity 0.1s linear;
 	}
 
