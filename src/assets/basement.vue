@@ -1,27 +1,37 @@
 <template>
 	<div class="wrapper">
-		<div class="img">
-			<div class="person"></div>
+		<div class="main">
+			<div class="img">
+				<div class="person"></div>
+			</div>
+			<div class="content">
+				<span class="date">2017.11.04(토) 12:00PM</span>
+				<span class="location">세븐스프링스 목동점</span>
+				<span class="greeting">평생을 같이하고 싶은 사람을 만나 한 가정을 이루게 되었습니다. 오셔서 저희의 시작을 지켜봐 주시고 축하해 주시면 감사하겠습니다.</span>
+			</div>
+			<div class="divider"></div>
+			<div class="loc-desc">
+				<div class="name">세븐스프링스 목동점</div>
+				<div class="address">서울시 양천구 목동동로 293 현대 41타워 41층</div>
+				<div class="phone">02-2168-2511</div>
+				<div class="map"></div>
+				<div class="sub-name">지하철</div>
+				<div class="sub-desc">오목교역(목동운동장앞) 2번출구, 도보 10분</div>
+				<div class="bus-name">버스</div>
+				<div class="bus-desc">간선: 571, 603 | 지선: 6624, 6627, 6637</div>
+				<div class="parking-name">지하철</div>
+				<div class="parking-desc">2시간 무료</div>
+				<div class="parking-desc2">(주차공간 부족시 목동 공영주차장을 이용해 주세요.)</div>
+				<div class="publick-parking-area-link" @click="openPopup">목동 공영주차창 지도 보기<div class="arrow"></div></div>
+			</div>	
 		</div>
-		<div class="content">
-			<span class="date">2017.11.04(토) 12:00PM</span>
-			<span class="location">세븐스프링스 목동점</span>
-			<span class="greeting">평생을 같이하고 싶은 사람을 만나 한 가정을 이루게 되었습니다. 오셔서 저희의 시작을 지켜봐 주시고 축하해 주시면 감사하겠습니다.</span>
-		</div>
-		<div class="divider"></div>
-		<div class="loc-desc">
-			<div class="name">세븐스프링스 목동점</div>
-			<div class="address">서울시 양천구 목동동로 293 현대 41타워 41층</div>
-			<div class="phone">02-2168-2511</div>
-			<div class="map"></div>
-			<div class="sub-name">지하철</div>
-			<div class="sub-desc">오목교역(목동운동장앞) 2번출구, 도보 10분</div>
-			<div class="bus-name">버스</div>
-			<div class="bus-desc">간선: 571, 603 | 지선: 6624, 6627, 6637</div>
-			<div class="parking-name">지하철</div>
-			<div class="parking-desc">2시간 무료</div>
-			<div class="parking-desc2">(주차공간 부족시 목동 공영주차장을 이용해 주세요.)</div>
-			<div class="publick-parking-area-link">목동 공영주차창 지도 보기<div class="arrow"></div></div>
+		<div class="popup">
+			<div class="pbpa-desc">
+				<div class="map2"></div>
+				<div class="pbpa-name">목동 공영주차장</div>
+				<div class="pbpa-address">서울시 양천구 목동 915 (현대백화점 옆)</div>
+				<div class="close" @click="hidePopup"></div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -32,6 +42,7 @@
 		mounted: function() {
 			this.setImageHeight();
 			this.setMap();
+			this.setMap2();
 		},
 		methods: {
 			setImageHeight: function () {
@@ -40,11 +51,11 @@
 				
 				img.style.height = `${height}px`;
 			},
-			setMap: function() {
+			setMap: function () {
 				const container = this.$el.querySelector('.map'),
 					options = {
 						center: new daum.maps.LatLng(37.5281527, 126.87574569999992),
-						level: 3
+						level: 4
 					},
 					map = new daum.maps.Map(container, options);
 
@@ -52,6 +63,30 @@
 					map: map,
 					position: new daum.maps.LatLng(37.5281527, 126.87574569999992)
 				});
+			},
+			setMap2: function () {
+				const container = this.$el.querySelector('.map2'),
+					options = {
+						center: new daum.maps.LatLng(37.528899, 126.878523),
+						level: 5
+					},
+					map = new daum.maps.Map(container, options);
+
+				new daum.maps.Marker({
+					map: map,
+					position: new daum.maps.LatLng(37.528899, 126.878523)
+				});
+			},
+			openPopup: function () {
+				this.$el.querySelector('.main').classList.add('hide');
+				this.$el.querySelector('.popup').classList.add('show');
+			},
+			hidePopup: function () {
+				const that = this;
+				this.$el.querySelector('.popup').classList.remove('show');
+				setTimeout(function() {
+					that.$el.querySelector('.main').classList.remove('hide');
+				}, 200)
 			}
 		}
 	};
@@ -72,6 +107,10 @@
 
 	span {
 		display: inline-block;
+	}
+
+	.main.hide {
+		display: none;
 	}
 
 	.img {
@@ -166,8 +205,6 @@
 		width: 288px;
 		height: 198px;
 
-		background-color: #eee;
-
 		margin-top: 30px;
 	}
 
@@ -232,6 +269,8 @@
 
 		margin-top: 20px;
 		margin-bottom: 50px;
+
+		cursor: pointer;
 	}
 
 	.arrow {
@@ -264,4 +303,72 @@
 			transform: scale(1);
 		}
 	}
+
+	.popup {
+		position: fixed;
+		top: 30%;
+		left: 50%;
+
+		transform: translateX(-50%);
+
+		width: 100%;
+
+		margin: 0 auto;
+
+		overflow: hidden;
+
+		max-width: 320px;
+
+		opacity: 0;
+
+		transition: top 0.2s ease-in, opacity 0.1s linear;
+	}
+
+	.popup.show {
+		top: 0;
+		opacity: 1;
+		z-index: 10;
+	}
+
+	.pbpa-desc {
+		padding: 0 16px;
+
+		margin-top: 62px;
+	}
+
+	.map2 {
+		width: 288px;
+		height: 198px;
+	}
+
+	.pbpa-name {
+		font-size: 14px;
+		color: #4b5262;
+		font-family: NotoSansMedium;
+
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	.pbpa-address {
+		font-size: 14px;
+		color: #4b5262;
+		font-family: NotoSansLight;
+
+		margin-bottom: 40px;
+	}
+
+	.close {
+		position: absolute;
+		top:16px;
+		right: 16px;
+
+		width: 16px;
+		height: 16px;
+
+		cursor: pointer;
+
+		background-image: url('/src/img/icon_close.svg');
+	}
+
 </style>
