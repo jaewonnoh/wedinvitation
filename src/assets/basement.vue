@@ -11,6 +11,16 @@
 				<div class="stars s6"></div>
 				<div class="stars s7"></div>
 				<div class="stars s8"></div>
+				<div class="flowers f1"></div>
+				<div class="flowers f2"></div>
+				<div class="flowers f3"></div>
+				<div class="flowers f4"></div>
+				<div class="flowers f5"></div>
+				<div class="flowers f6"></div>
+				<div class="flowers f7"></div>
+				<div class="flowers f8"></div>
+				<div class="flowers f9"></div>
+				<div class="flowers f10"></div>
 			</div>
 			<div class="content">
 				<span class="date">2017.11.04(토) 12:00PM</span>
@@ -48,17 +58,10 @@
 	export default {
 		name: 'basement',
 		mounted: function() {
-			this.setImageHeight();
 			this.setMap();
 			this.setMap2();
 		},
 		methods: {
-			setImageHeight: function () {
-				const img = this.$el.querySelector('.img'),
-					height = img.clientWidth * 0.84;
-				
-				img.style.height = `${height}px`;
-			},
 			setMap: function () {
 				const container = this.$el.querySelector('.map'),
 					options = {
@@ -119,16 +122,27 @@
 	}
 
 	.img {
+		position: relative;
+
 		width: 100%;
+		height: 268px;
 
 		background-image: url('/src/img/invitation_img_bg.svg');
+
+		overflow: hidden;
 	}
 
 	.person {
+		position: absolute;
+		top: 0;
+		left: 0;
+
 		width: 100%;
 		height: 100%;
 
 		background-image: url('/src/img/invitation_img.svg');
+
+		z-index: 10;
 	}
 
 	.stars {
@@ -220,6 +234,122 @@
 		height: 5px;	
 
 		animation-delay: 0.1s;
+	}
+
+	.flowers {
+		position: absolute;
+
+		background-image: url('/src/img/flower.svg');
+		background-size: 100%;
+
+		animation-name: rain;
+		animation-timing-function: ease-in;
+		animation-iteration-count: infinite;
+		animation-duration: 8s;
+
+		z-index: 5;
+	}
+
+	.f1 {
+		top: -10px;
+		left: -10px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 3s;
+	}
+
+	.f2 {
+		top: -10px;
+		left: 40px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 5s;
+	}
+
+	.f3 {
+		top: -10px;
+		left: 90px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 2s;
+	}
+
+	.f4 {
+		top: -10px;
+		left: 140px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 7s;
+	}
+
+	.f5 {
+		top: -10px;
+		left: 190px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 4s;
+	}
+
+	.f6 {
+		top: -10px;
+		left: 240px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 8s;
+	}
+
+	.f7 {
+		top: -10px;
+		left: -90px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 1s;
+
+		z-index: 15;
+	}
+
+	.f8 {
+		top: -10px;
+		left: -140px;
+
+		width: 10px;
+		height: 10px;
+
+		z-index: 15;
+
+		animation-delay: 3s;
+	}
+
+	.f9 {
+		top: -10px;
+		left: -80px;
+
+		width: 10px;
+		height: 10px;
+
+		animation-delay: 3s;
+	}
+
+	.f10 {
+		top: -10px;
+		left: 20px;
+
+		width: 10px;
+		height: 10px;
 	}
 
 	.content {
@@ -395,11 +525,21 @@
 
 	@keyframes blink {
 		from {
-			transform: scale(1.2);
+			transform: scale(1);
 		}
 
 		to {
-			transform: scale(0);
+			transform: scale(0.1);
+		}
+	}
+
+	@keyframes rain {
+		from {
+			transform: translate(0px, 0px);
+		}
+
+		to {
+			transform: translate(200px, 280px);
 		}
 	}
 
