@@ -15,16 +15,25 @@
 				<div class="stars s6"></div>
 				<div class="stars s7"></div>
 				<div class="stars s8"></div>
-				<div class="flowers f1"></div>
-				<div class="flowers f2"></div>
-				<div class="flowers f3"></div>
-				<div class="flowers f4"></div>
-				<div class="flowers f5"></div>
-				<div class="flowers f6"></div>
-				<div class="flowers f7"></div>
-				<div class="flowers f8"></div>
-				<div class="flowers f9"></div>
-				<div class="flowers f10"></div>
+				<div class="flowers f1"><div class="flower"></div></div>
+				<div class="flowers f2"><div class="flower"></div></div>
+				<div class="flowers f3"><div class="flower"></div></div>
+				<div class="flowers f4"><div class="flower"></div></div>
+				<div class="flowers f5"><div class="flower"></div></div>
+				<div class="flowers f6"><div class="flower"></div></div>
+				<div class="flowers f7"><div class="flower"></div></div>
+				<div class="flowers f8"><div class="flower"></div></div>
+				<div class="flowers f9"><div class="flower"></div></div>
+				<div class="flowers f10"><div class="flower"></div></div>
+				<div class="flowers f11"><div class="flower"></div></div>
+				<div class="flowers f12"><div class="flower"></div></div>
+				<div class="flowers f13"><div class="flower"></div></div>
+				<div class="flowers f14"><div class="flower"></div></div>
+				<div class="flowers f15"><div class="flower"></div></div>
+				<div class="flowers f16"><div class="flower"></div></div>
+				<div class="flowers f17"><div class="flower"></div></div>
+				<div class="flowers f18"><div class="flower"></div></div>
+				<div class="flowers f19"><div class="flower"></div></div>
 			</div>
 			<div class="content">
 				<span class="date">2017.11.04(토) 12:00PM</span>
@@ -72,12 +81,12 @@
 
 				const jw = setInterval(function () {
 					that.closeEyes(that.$el.querySelector('.jw-eyes'), 1);
-				}, 2000);
+				}, 3000);
 
 				setTimeout(function () {
 					const mj = setInterval(function () {
 						that.closeEyes(that.$el.querySelector('.mj-eyes'), 2);
-					}, 2000);	
+					}, 3000);	
 				}, 1000);
 			},
 			closeEyes: function (target, cnt) {
@@ -342,8 +351,8 @@
 	.flowers {
 		position: absolute;
 
-		background-image: url('/src/img/flower.svg');
-		background-size: 100%;
+		width: 10px;
+		height: 10px;
 
 		animation-name: rain;
 		animation-timing-function: ease-in;
@@ -353,106 +362,152 @@
 		z-index: 5;
 	}
 
+	.flower {
+		width: 100%;
+		height: 100%;
+
+		background-image: url('/src/img/flower.svg');
+		background-size: 100%;
+
+		animation-name: rotation;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-duration: 5s;
+	}
+
 	.f1 {
 		top: -10px;
-		left: -10px;
+		left: -140px;
 
-		width: 10px;
-		height: 10px;
-
-		animation-delay: 3s;
+		animation-delay: 4s
 	}
 
 	.f2 {
 		top: -10px;
-		left: 40px;
+		left: -115px;
 
-		width: 10px;
-		height: 10px;
+		z-index: 15;
 
-		animation-delay: 5s;
+		animation-delay: 6.5s;
 	}
 
 	.f3 {
 		top: -10px;
-		left: 90px;
+		left: -90px;
 
-		width: 10px;
-		height: 10px;
-
-		animation-delay: 2s;
+		animation-delay: 3.5s;
 	}
 
 	.f4 {
 		top: -10px;
-		left: 140px;
+		left: -65px;
 
-		width: 10px;
-		height: 10px;
-
-		animation-delay: 7s;
+		animation-delay: 2s;
 	}
 
 	.f5 {
 		top: -10px;
-		left: 190px;
+		left: -40px;
 
-		width: 10px;
-		height: 10px;
+		animation-delay: 6s;
 
-		animation-delay: 4s;
+		z-index: 15;
 	}
 
 	.f6 {
 		top: -10px;
-		left: 240px;
+		left: -15px;
 
-		width: 10px;
-		height: 10px;
-
-		animation-delay: 8s;
+		animation-delay: 3.5s;
 	}
 
 	.f7 {
 		top: -10px;
-		left: -90px;
-
-		width: 10px;
-		height: 10px;
+		left: 10px;
 
 		animation-delay: 1s;
-
-		z-index: 15;
 	}
 
 	.f8 {
 		top: -10px;
-		left: -140px;
+		left: 35px;
 
-		width: 10px;
-		height: 10px;
-
-		z-index: 15;
-
-		animation-delay: 3s;
+		animation-delay: 6s;
 	}
 
 	.f9 {
 		top: -10px;
-		left: -80px;
+		left: 60px;
 
-		width: 10px;
-		height: 10px;
-
-		animation-delay: 3s;
+		animation-delay: 0.2s;
 	}
 
 	.f10 {
 		top: -10px;
-		left: 20px;
+		left: 85px;
 
-		width: 10px;
-		height: 10px;
+		animation-delay: 4.5s;
+	}
+
+	.f11 {
+		top: -10px;
+		left: 110px;
+
+		animation-delay: 7.5s;
+	}
+
+	.f12 {
+		top: -10px;
+		left: 135px;
+
+		animation-delay: 2.5s;
+	}
+
+	.f13 {
+		top: -10px;
+		left: 160px;
+
+		animation-delay: 6.5s;
+	}
+
+	.f14 {
+		top: -10px;
+		left: 185px;
+
+		animation-delay: 5s;
+	}
+
+	.f15 {
+		top: -10px;
+		left: 210px;
+
+		animation-delay: 1.5s;
+	}
+
+	.f16 {
+		top: -10px;
+		left: 235px;
+
+		animation-delay: 7s;
+	}
+
+	.f17 {
+		top: -10px;
+		left: 260px;
+	}
+
+	.f18 {
+		top: -10px;
+		left: 285px;
+
+		animation-delay: 5.5s;
+	}
+
+	.f19 {
+		top: -10px;
+		left: 310px;
+
+		animation-delay: 0.1s;
 	}
 
 	.content {
@@ -643,6 +698,16 @@
 
 		to {
 			transform: translate(200px, 280px);
+		}
+	}
+
+	@keyframes rotation {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(360deg);
 		}
 	}
 
