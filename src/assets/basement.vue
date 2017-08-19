@@ -16,23 +16,23 @@
 				<div class="stars s7"></div>
 				<div class="stars s8"></div>
 				<div class="flowers f1"><div class="flower"></div></div>
-				<div class="flowers f2"><div class="flower"></div></div>
+				<div class="flowers f2 big"><div class="flower"></div></div>
 				<div class="flowers f3"><div class="flower"></div></div>
 				<div class="flowers f4"><div class="flower"></div></div>
-				<div class="flowers f5"><div class="flower"></div></div>
+				<div class="flowers f5 big"><div class="flower"></div></div>
 				<div class="flowers f6"><div class="flower"></div></div>
 				<div class="flowers f7"><div class="flower"></div></div>
-				<div class="flowers f8"><div class="flower"></div></div>
+				<div class="flowers f8 big"><div class="flower"></div></div>
 				<div class="flowers f9"><div class="flower"></div></div>
 				<div class="flowers f10"><div class="flower"></div></div>
-				<div class="flowers f11"><div class="flower"></div></div>
+				<div class="flowers f11 big"><div class="flower"></div></div>
 				<div class="flowers f12"><div class="flower"></div></div>
 				<div class="flowers f13"><div class="flower"></div></div>
-				<div class="flowers f14"><div class="flower"></div></div>
+				<div class="flowers f14 big"><div class="flower"></div></div>
 				<div class="flowers f15"><div class="flower"></div></div>
-				<div class="flowers f16"><div class="flower"></div></div>
+				<div class="flowers f16 big"><div class="flower"></div></div>
 				<div class="flowers f17"><div class="flower"></div></div>
-				<div class="flowers f18"><div class="flower"></div></div>
+				<div class="flowers f18 big"><div class="flower"></div></div>
 				<div class="flowers f19"><div class="flower"></div></div>
 			</div>
 			<div class="content">
@@ -271,7 +271,7 @@
 	}
 
 	.s1 {
-		top: 22px;
+		top: 14px;
 		left: 25px;
 
 		width: 9px;
@@ -289,8 +289,8 @@
 	}
 
 	.s3 {
-		top: 23px;
-		right: 34px;
+		top: 7px;
+		right: 72px;
 
 		width: 7px;
 		height: 7px;	
@@ -299,7 +299,7 @@
 	}
 
 	.s4 {
-		top: 60px;
+		top: 133px;
 		left: 16px;
 
 		width: 5px;
@@ -319,8 +319,8 @@
 	}
 
 	.s6 {
-		top: 84px;
-		left: 51px;
+		top: 99px;
+		left: 56px;
 
 		width: 7px;
 		height: 7px;	
@@ -339,7 +339,7 @@
 	}
 
 	.s8 {
-		top: 85px;
+		top: 114px;
 		right: 32px;
 
 		width: 5px;
@@ -372,7 +372,12 @@
 		animation-name: rotation;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
-		animation-duration: 5s;
+		animation-duration: 3s;
+	}
+
+	.big {
+		width: 15px;
+		height: 15px;
 	}
 
 	.f1 {
@@ -383,7 +388,7 @@
 	}
 
 	.f2 {
-		top: -10px;
+		top: -15px;
 		left: -115px;
 
 		z-index: 15;
@@ -406,7 +411,7 @@
 	}
 
 	.f5 {
-		top: -10px;
+		top: -15px;
 		left: -40px;
 
 		animation-delay: 6s;
@@ -429,7 +434,7 @@
 	}
 
 	.f8 {
-		top: -10px;
+		top: -15px;
 		left: 35px;
 
 		animation-delay: 6s;
@@ -450,7 +455,7 @@
 	}
 
 	.f11 {
-		top: -10px;
+		top: -15px;
 		left: 110px;
 
 		animation-delay: 7.5s;
@@ -471,7 +476,7 @@
 	}
 
 	.f14 {
-		top: -10px;
+		top: -15px;
 		left: 185px;
 
 		animation-delay: 5s;
@@ -485,7 +490,7 @@
 	}
 
 	.f16 {
-		top: -10px;
+		top: -15px;
 		left: 235px;
 
 		animation-delay: 7s;
@@ -497,7 +502,7 @@
 	}
 
 	.f18 {
-		top: -10px;
+		top: -15px;
 		left: 285px;
 
 		animation-delay: 5.5s;
@@ -519,7 +524,7 @@
 	}
 
 	.date {
-		font-family: NotoSansBold;
+		font-weight: 700;
 		color: #4b5262;
 		font-size: 14px;
 		text-align: left;
@@ -529,7 +534,7 @@
 	}
 
 	.location {
-		font-family: NotoSansRegular;
+		font-weight: 400;
 		color: #4b5262;
 		font-size: 14px;
 		text-align: left;
@@ -539,7 +544,6 @@
 	.greeting {
 		width: 261px;
 
-		font-family: NotoSansLight;
 		color: #7d8daa;
 		font-size: 14px;
 		text-align: left;
@@ -564,9 +568,9 @@
 	}
 
 	.name {
+		font-weight: 600;
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansMedium;
 		line-height: 1;
 
 		margin-bottom: 12px;
@@ -575,7 +579,6 @@
 	.address {
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansLight;
 		line-height: 1;
 
 		margin-bottom: 12px;	
@@ -584,7 +587,6 @@
 	.phone {
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansLight;
 		line-height: 1;
 
 		text-decoration: underline;
@@ -598,9 +600,9 @@
 	}
 
 	.sub-name {
+		font-weight: 600;
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansMedium;
 		line-height: 1;
 
 		margin-top: 30px;
@@ -610,14 +612,13 @@
 	.sub-desc {
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansLight;
 		line-height: 1;
 	}
 
 	.bus-name {
+		font-weight: 600;
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansMedium;
 		line-height: 1;
 
 		margin-top: 20px;
@@ -627,14 +628,13 @@
 	.bus-desc {
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansLight;
 		line-height: 1;
 	}
 
 	.parking-name {
+		font-weight: 600;
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansMedium;
 		line-height: 1;
 
 		margin-top: 20px;
@@ -644,7 +644,6 @@
 	.parking-desc {
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansLight;
 		line-height: 1;
 
 		margin-bottom: 8px;
@@ -653,14 +652,12 @@
 	.parking-desc2 {
 		font-size: 12px;
 		color: #4b5262;
-		font-family: NotoSansLight;
 		line-height: 1;
 	}
 
 	.publick-parking-area-link {
 		font-size: 14px;
 		color: #ff8f98;
-		font-family: NotoSansLight;
 		line-height: 1;
 		line-height: 14px;
 
@@ -749,9 +746,9 @@
 	}
 
 	.pbpa-name {
+		font-weight: 600;
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansMedium;
 		line-height: 1;
 
 		margin-top: 20px;
@@ -761,7 +758,6 @@
 	.pbpa-address {
 		font-size: 14px;
 		color: #4b5262;
-		font-family: NotoSansLight;
 		line-height: 1;
 
 		margin-bottom: 40px;
