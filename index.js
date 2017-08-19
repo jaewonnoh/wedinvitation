@@ -3,13 +3,10 @@ const
 	app = express(),
 	server = require('http').createServer(app),
 	path = require('path'),
-	cors = require('cors')(),
 	webpack = require('webpack'),
 	webpackDevMiddleware = require('webpack-dev-middleware'),
 	webpackHotMiddleware = require('webpack-hot-middleware'),
 	compiler = webpack(require(path.join(__dirname, './wpconfig/webpack.config.js')));
-
-app.use(cors);
 
 app.use(webpackDevMiddleware(compiler, {
 	noInfo: true,
