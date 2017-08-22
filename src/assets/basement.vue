@@ -516,7 +516,7 @@
 	}
 
 	.content {
-		margin-top: 28px;
+		margin-top: 20px;
 
 		padding: 0 16px;
 
@@ -556,7 +556,7 @@
 		width: 288px;
 		height: 0;
 
-		border-top: 2px dotted #dcdcdc;
+		border-top: 1px dashed #dcdcdc;
 
 		margin: 29.8px auto 0 auto;
 	}
@@ -684,7 +684,7 @@
 		}
 
 		to {
-			transform: scale(0.1);
+			transform: scale(0.3);
 		}
 	}
 
@@ -694,7 +694,7 @@
 		}
 
 		to {
-			transform: translate(200px, 280px);
+			transform: translate(100px, 280px);
 		}
 	}
 
@@ -737,7 +737,7 @@
 	.pbpa-desc {
 		padding: 0 16px;
 
-		margin-top: 62px;
+		margin-top: 48px;
 	}
 
 	.map2 {
