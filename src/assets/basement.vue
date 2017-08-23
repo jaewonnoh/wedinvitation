@@ -7,33 +7,10 @@
 				<div class="closed-jw-eyes"></div>
 				<div class="mj-eyes"></div>
 				<div class="closed-mj-eyes"></div>
-				<div class="stars s1"></div>
-				<div class="stars s2"></div>
-				<div class="stars s3"></div>
-				<div class="stars s4"></div>
-				<div class="stars s5"></div>
-				<div class="stars s6"></div>
-				<div class="stars s7"></div>
-				<div class="stars s8"></div>
-				<div class="flowers f1"><div class="flower"></div></div>
-				<div class="flowers f2 big"><div class="flower"></div></div>
-				<div class="flowers f3"><div class="flower"></div></div>
-				<div class="flowers f4"><div class="flower"></div></div>
-				<div class="flowers f5 big"><div class="flower"></div></div>
-				<div class="flowers f6"><div class="flower"></div></div>
-				<div class="flowers f7"><div class="flower"></div></div>
-				<div class="flowers f8 big"><div class="flower"></div></div>
-				<div class="flowers f9"><div class="flower"></div></div>
-				<div class="flowers f10"><div class="flower"></div></div>
-				<div class="flowers f11 big"><div class="flower"></div></div>
-				<div class="flowers f12"><div class="flower"></div></div>
-				<div class="flowers f13"><div class="flower"></div></div>
-				<div class="flowers f14 big"><div class="flower"></div></div>
-				<div class="flowers f15"><div class="flower"></div></div>
-				<div class="flowers f16 big"><div class="flower"></div></div>
-				<div class="flowers f17"><div class="flower"></div></div>
-				<div class="flowers f18 big"><div class="flower"></div></div>
-				<div class="flowers f19"><div class="flower"></div></div>
+				<div class="stars" v-for="(val, index) in stars"></div>
+				<div class="flowers" v-for="(val, index) in flowers">
+					<div class="flower"></div>
+				</div>
 			</div>
 			<div class="content">
 				<span class="date">2017.11.04(토) 12:00PM</span>
@@ -70,12 +47,44 @@
 <script>
 	export default {
 		name: 'basement',
+		props: {
+			flowers: {
+				type: Array,
+				default: function() {
+					return new Array(19)
+				}
+			},
+			stars: {
+				type: Array,
+				default: function() {
+					return new Array(8)
+				}
+			}
+		},
 		mounted: function () {
+			const that = this;
+
+			this.setElementsClass();
 			this.setEyesAnimation();
 			this.setMap();
 			this.setMap2();
 		},
 		methods: {
+			setElementsClass: function() {
+				let i = 0,
+					j = 0;
+
+				for (i = 0; i < this.flowers.length; i++) {
+					if (Math.random() > 0.66) {
+						this.$el.querySelectorAll('.flowers')[i].classList.add('big');	
+						this.$el.querySelectorAll('.flowers')[i].style.top = '-15px';
+					}
+					this.$el.querySelectorAll('.flowers')[i].classList.add(`f${i+1}`);
+				}
+				for (j = 0; j < this.stars.length; j++) {
+					this.$el.querySelectorAll('.stars')[j].classList.add(`s${j+1}`);
+				}
+			},
 			setEyesAnimation: function () {
 				const that = this;
 
@@ -114,20 +123,23 @@
 
 				new daum.maps.Marker({
 					map: map,
-					position: new daum.maps.LatLng(37.5281527, 126.87574569999992)
+					position: new daum.maps.LatLng(37.5281527, 126.87574569999992),
+					title: '현대 41타워 41층'
 				});
 			},
 			setMap2: function () {
 				const container = this.$el.querySelector('.map2'),
 					options = {
 						center: new daum.maps.LatLng(37.528899, 126.878523),
-						level: 5
+						level: 5,
+						draggable: false
 					},
 					map = new daum.maps.Map(container, options);
 
 				new daum.maps.Marker({
 					map: map,
-					position: new daum.maps.LatLng(37.528899, 126.878523)
+					position: new daum.maps.LatLng(37.528899, 126.878523),
+					title: '목동 공영 주차장'
 				});
 			},
 			openPopup: function () {
@@ -138,7 +150,8 @@
 				this.$el.querySelector('.popup').classList.remove('show');
 				this.$el.querySelector('.main').classList.remove('hide');
 			}
-		}
+		},
+
 	};
 </script>
 
@@ -388,7 +401,7 @@
 	}
 
 	.f2 {
-		top: -15px;
+		top: -10px;
 		left: -115px;
 
 		z-index: 15;
@@ -411,7 +424,7 @@
 	}
 
 	.f5 {
-		top: -15px;
+		top: -10px;
 		left: -40px;
 
 		animation-delay: 6s;
@@ -434,7 +447,7 @@
 	}
 
 	.f8 {
-		top: -15px;
+		top: -10px;
 		left: 35px;
 
 		animation-delay: 6s;
@@ -455,7 +468,7 @@
 	}
 
 	.f11 {
-		top: -15px;
+		top: -10px;
 		left: 110px;
 
 		animation-delay: 7.5s;
@@ -476,7 +489,7 @@
 	}
 
 	.f14 {
-		top: -15px;
+		top: -10px;
 		left: 185px;
 
 		animation-delay: 5s;
@@ -490,7 +503,7 @@
 	}
 
 	.f16 {
-		top: -15px;
+		top: -10px;
 		left: 235px;
 
 		animation-delay: 7s;
@@ -502,7 +515,7 @@
 	}
 
 	.f18 {
-		top: -15px;
+		top: -10px;
 		left: 285px;
 
 		animation-delay: 5.5s;
