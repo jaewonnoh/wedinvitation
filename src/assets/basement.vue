@@ -35,7 +35,7 @@
 				<dt class="parking-name">주소</dt>
 				<dd class="parking-desc">서울시 양천구 목동동로 293 현대 41타워 41층</dd>
 				<dt class="parking-name">전화</dt>
-				<dd class="parking-desc"><a href="tel+0319768300">02.2168.2511</a></dd>
+				<dd class="parking-desc"><a href="tel:+0319768300">02.2168.2511</a></dd>
 				<dt class="sub-name">지하철</dt>
 				<dd class="sub-desc">오목교역(목동운동장앞) 2번출구, 도보 10분</dd>
 				<dt class="bus-name">버스</dt>
