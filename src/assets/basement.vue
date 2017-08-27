@@ -825,7 +825,6 @@
 	}
 
 	.date {
-		font-weight: 300;
 		font-size: 18px;
 		line-height: 1.47;
 		color: #fff;
