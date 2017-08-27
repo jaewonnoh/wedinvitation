@@ -24,7 +24,7 @@
 			<div class="map-wrapper">
 				<div class="map-title">오시는 길</div>
 				<span class="map-desc">지도를 터치하시면 다음지도로 연결됩니다.</span>
-				<div class="link" @click="linkToDaumMap('sv')"></div>
+				<div class="link" @click="linkToDaumMap('svs')"></div>
 				<div class="map"></div>
 				<div class="zoom map1">
 					<div class="plus" @click="zoomIn(map)"></div>
@@ -168,7 +168,7 @@
 			},
 			linkToDaumMap: function (location) {
 				let loc;
-				if (location === 'sv') {
+				if (location === 'svs') {
 					loc = this.loc;
 				} else {
 					loc = this.parkingLoc;
@@ -178,7 +178,7 @@
 			setMap: function () {
 				const container = this.$el.querySelector('.map'),
 					options = {
-						center: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
+						center: new daum.maps.LatLng(37.526908, 126.875397),
 						level: 4
 					},
 					map = new daum.maps.Map(container, options),
@@ -187,13 +187,8 @@
 						position: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
 						title: '현대 41타워 41층',
 						image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
-					}),
-					customOverlay = new daum.maps.CustomOverlay({
-						map: map,
-						position : new daum.maps.LatLng(this.loc.lat, this.loc.lng),
-						content : '<div class="marker-info">세븐스프링스 목동</div>',
-						yAnchor: 1
 					});
+					map.name = 'svs';
 
 				this.map = map;
 			},
@@ -217,6 +212,7 @@
 						content : '<div class="marker-info c-m2">목동 공영 주차장</div>',
 						yAnchor: 1
 					});
+					map.name = 'pbpa';
 					
 				this.map2 = map;
 			},
@@ -229,10 +225,22 @@
 				this.$el.querySelector('.main').classList.remove('hide');
 			},
 			zoomIn: function (map) {
-				map.setLevel(map.getLevel() - 1);
+				if (map.name === 'svs') {
+					map.setLevel(map.getLevel() - 1, {
+						anchor:new daum.maps.LatLng(this.loc.lat, this.loc.lng)
+					});	
+				} else {
+					map.setLevel(map.getLevel() - 1);
+				}
 			},
 			zoomOut: function (map) {
-				map.setLevel(map.getLevel() + 1);
+				if (map.name === 'svs') {
+					map.setLevel(map.getLevel() + 1, {
+						anchor:new daum.maps.LatLng(this.loc.lat, this.loc.lng)
+					});	
+				} else {
+					map.setLevel(map.getLevel() + 1);
+				}
 			}
 		},
 
