@@ -321,7 +321,7 @@
 
 	.mj-eyes {
 		position:absolute;
-		top: 200px;
+		top: 198px;
 		right: 76.1px;
 
 		width: 30px;
@@ -339,7 +339,7 @@
 
 	.closed-mj-eyes {
 		position:absolute;
-		top: 200px;
+		top: 198px;
 		right: 76.1px;
 
 		width: 30px;
@@ -724,6 +724,8 @@
 		border-radius: 2px;
 
 		background-color: #fff;
+
+		box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.45);
 
 		z-index: 11;
 	}
