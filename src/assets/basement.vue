@@ -134,7 +134,10 @@
 				for (i = 0; i < this.flowers.length; i++) {
 					if (Math.random() > 0.66) {
 						this.$el.querySelectorAll('.flowers')[i].classList.add('big');  
-						this.$el.querySelectorAll('.flowers')[i].style.top = '-15px';
+						this.$el.querySelectorAll('.flowers')[i].style.top = '-25px';
+					}
+					if (Math.random() > 0.66) {
+						this.$el.querySelectorAll('.flowers')[i].classList.add('opacity-flower');
 					}
 					this.$el.querySelectorAll('.flowers')[i].classList.add(`f${i+1}`);
 				}
@@ -276,7 +279,7 @@
 		position: relative;
 
 		width: 100%;
-		height: 290px;
+		height: 275px;
 
 		background-image: url('/src/img/invitation_img_bg.svg');
 
@@ -298,7 +301,7 @@
 
 	.jw-eyes {
 		position:absolute;
-		top: 159.4px;
+		top: 144.4px;
 		left: 111px;
 
 		width: 32px;
@@ -315,7 +318,7 @@
 
 	.closed-jw-eyes {
 		position:absolute;
-		top: 159.4px;
+		top: 144.4px;
 		left: 111px;
 
 		width: 32px;
@@ -333,7 +336,7 @@
 
 	.mj-eyes {
 		position:absolute;
-		top: 198px;
+		top: 183px;
 		right: 76.1px;
 
 		width: 30px;
@@ -351,7 +354,7 @@
 
 	.closed-mj-eyes {
 		position:absolute;
-		top: 198px;
+		top: 183px;
 		right: 76.1px;
 
 		width: 30px;
@@ -462,8 +465,8 @@
 	.flowers {
 		position: absolute;
 
-		width: 10px;
-		height: 10px;
+		width: 15px;
+		height: 15px;
 
 		animation-name: rain;
 		animation-timing-function: ease-in;
@@ -471,6 +474,8 @@
 		animation-duration: 8s;
 
 		z-index: 5;
+
+		top: -15px;
 	}
 
 	.flower {
@@ -486,20 +491,24 @@
 		animation-duration: 3s;
 	}
 
+	.opacity-flower {
+		opacity: 0.5;
+	}
+
 	.big {
-		width: 15px;
-		height: 15px;
+		top: -20px;
+
+		width: 20px;
+		height: 20px;
 	}
 
 	.f1 {
-		top: -10px;
 		left: -140px;
 
 		animation-delay: -4s
 	}
 
 	.f2 {
-		top: -10px;
 		left: -115px;
 
 		z-index: 15;
@@ -508,21 +517,18 @@
 	}
 
 	.f3 {
-		top: -10px;
 		left: -90px;
 
 		animation-delay: -3.5s;
 	}
 
 	.f4 {
-		top: -10px;
 		left: -65px;
 
 		animation-delay: -2s;
 	}
 
 	.f5 {
-		top: -10px;
 		left: -40px;
 
 		animation-delay: -6s;
@@ -531,96 +537,82 @@
 	}
 
 	.f6 {
-		top: -10px;
 		left: -15px;
 
 		animation-delay: -3.5s;
 	}
 
 	.f7 {
-		top: -10px;
 		left: 10px;
 
 		animation-delay: -1s;
 	}
 
 	.f8 {
-		top: -10px;
 		left: 35px;
 
 		animation-delay: -6s;
 	}
 
 	.f9 {
-		top: -10px;
 		left: 60px;
 
 		animation-delay: -0.2s;
 	}
 
 	.f10 {
-		top: -10px;
 		left: 85px;
 
 		animation-delay: -4.5s;
 	}
 
 	.f11 {
-		top: -10px;
 		left: 110px;
 
 		animation-delay: 7.5s;
 	}
 
 	.f12 {
-		top: -10px;
 		left: 135px;
 
 		animation-delay: 2.5s;
 	}
 
 	.f13 {
-		top: -10px;
 		left: 160px;
 
 		animation-delay: 6.5s;
 	}
 
 	.f14 {
-		top: -10px;
 		left: 185px;
 
 		animation-delay: -5s;
 	}
 
 	.f15 {
-		top: -10px;
 		left: 210px;
 
 		animation-delay: -1.5s;
 	}
 
 	.f16 {
-		top: -10px;
 		left: 235px;
 
 		animation-delay: -7s;
 	}
 
 	.f17 {
-		top: -10px;
 		left: 260px;
 	}
 
 	.f18 {
-		top: -10px;
 		left: 285px;
 
 		animation-delay: 5.5s;
 	}
 
 	.f19 {
-		top: -10px;
 		left: 310px;
 
 		animation-delay: 0.1s;
@@ -639,6 +631,8 @@
 		color: #464646;
 		font-size: 18px;
 		line-height: 1.47;
+
+		margin: 0;
 	}
 
 	.greeting {
@@ -956,7 +950,7 @@
 		}
 
 		to {
-			transform: translate(100px, 320px);
+			transform: translate(100px, 310px);
 		}
 	}
 
