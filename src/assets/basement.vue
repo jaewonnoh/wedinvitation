@@ -16,8 +16,8 @@
 				<h1 class="title">초대합니다.</h1>
 				<span class="greeting">평생을 같이하고 싶은 사람을 만나<br />한 가정을 이루게 되었습니다.<br />오셔서 저희의 앞날을 축복해 주시고<br />격려해 주시길 소망합니다.</span>
 				<div class="f-tree">
-					<span class="tree">노경수, 서정자의 장남 <span class="child">재원</span></span><br />
-					<span class="tree">강성문, 김정자의 차녀 <span class="child">민주</span></span>
+					<span class="tree">노경수, 서정자의 장남<span class="child">재원</span></span><br />
+					<span class="tree">강성문, 김정자의 차녀<span class="child">민주</span></span>
 				</div>
 			</div>
 			<div class="divider"></div>
@@ -26,29 +26,39 @@
 				<span class="map-desc">지도를 터치하시면 다음지도로 연결됩니다.</span>
 				<div class="link" @click="linkToDaumMap('sv')"></div>
 				<div class="map"></div>
+				<div class="zoom map1">
+					<div class="plus" @click="zoomIn(map)"></div>
+					<div class="minus" @click="zoomOut(map)"></div>
+				</div>
 			</div>
 			<div class="wed-loc">
 				<div class="date">2017년 11월 4일 토요일 낮 12시</div>
 				<div class="loc">세븐스프링스 목동</div> 
 			</div>
 			<dl class="loc-desc">
-				<dt class="parking-name">주소</dt>
-				<dd class="parking-desc">서울시 양천구 목동동로 293 현대 41타워 41층</dd>
-				<dt class="parking-name">전화</dt>
-				<dd class="parking-desc"><a href="tel:+0319768300">02.2168.2511</a></dd>
-				<dt class="sub-name">지하철</dt>
-				<dd class="sub-desc">오목교역(목동운동장앞) 2번출구, 도보 10분</dd>
-				<dt class="bus-name">버스</dt>
-				<dd class="bus-desc">간선: 571, 603 | 지선: 6624, 6627, 6637</dd>
-				<dt class="parking-name">지하철</dt>
-				<dd class="parking-desc">2시간 무료</dd>
+				<dt class="name">주소</dt>
+				<dd class="desc">서울시 양천구 목동동로 293 현대 41타워 41층</dd>
+				<dt class="phone name">전화</dt>
+				<dd class="phone-number desc"><a href="tel:0319768300">02. 2168. 2511</a></dd><br />
+				<dt class="sub name">지하철</dt>
+				<dd class="sub desc">오목교역(목동운동장앞) 2번출구, 도보 10분</dd><br />
+				<dt class="bus name">버스</dt>
+				<dd class="bus desc">간선: 571, 603 | 지선: 6624, 6627, 6637</dd><br />
+				<dt class="parking name">주차장</dt>
+				<dd class="parking desc">2시간 무료</dd>
 			</dl>	
-			<div class="parking-desc2">(주차공간 부족시 목동 공영주차장을 이용해 주세요.)</div>
+			<div class="parking-desc2">* 주차공간 부족시 목동 공영주차장을 이용해 주세요.</div>
 			<div class="publick-parking-area-link" @click="openPopup">목동 공영주차창 지도 보기<div class="arrow"></div></div>
 		</div>
 		<div class="popup">
 			<div class="pbpa-desc">
+				<span class="map-desc">지도를 터치하시면 다음지도로 연결됩니다.</span>
+				<div class="link2" @click="linkToDaumMap('pp')"></div>
 				<div class="map2"></div>
+				<div class="zoom map2-1">
+					<div class="plus" @click="zoomIn(map2)"></div>
+					<div class="minus" @click="zoomOut(map2)"></div>
+				</div>
 				<div class="pbpa-name">목동 공영주차장</div>
 				<div class="pbpa-address">서울시 양천구 목동 915 (현대백화점 옆)</div>
 				<div class="close" @click="hidePopup"></div>
@@ -76,8 +86,8 @@
 				default: function() {
 					return {
 						name: '목동 공영 주차장',
-						lat: 37.528899,
-						lng: 126.878523
+						lat: 37.527481,
+						lng: 126.876990
 					};
 				}
 			},
@@ -93,6 +103,16 @@
 					return new Array(8);
 				}
 			}
+		},
+		data: function () {
+			return {
+				map: {
+					type: Object
+				},
+				map2: {
+					type: Object
+				}
+			};
 		},
 		mounted: function () {
 			const that = this;
@@ -153,7 +173,6 @@
 				} else {
 					loc = this.parkingLoc;
 				}
-				console.log(this.loc);
 				window.open(`http:\/\/map.daum.net\/link\/map\/${loc.name},${loc.lat},${loc.lng}`, '_blank');
 			},
 			setMap: function () {
@@ -162,14 +181,21 @@
 						center: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
 						level: 4
 					},
-					map = new daum.maps.Map(container, options);
+					map = new daum.maps.Map(container, options),
+					marker = new daum.maps.Marker({
+						map: map,
+						position: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
+						title: '현대 41타워 41층',
+						image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
+					}),
+					customOverlay = new daum.maps.CustomOverlay({
+						map: map,
+						position : new daum.maps.LatLng(this.loc.lat, this.loc.lng),
+						content : '<div class="marker-info">세븐스프링스 목동</div>',
+						yAnchor: 1
+					});
 
-				new daum.maps.Marker({
-					map: map,
-					position: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
-					title: '현대 41타워 41층',
-					image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
-				});
+				this.map = map;
 			},
 			setMap2: function () {
 				const container = this.$el.querySelector('.map2'),
@@ -178,14 +204,21 @@
 						level: 5,
 						draggable: false
 					},
-					map = new daum.maps.Map(container, options);
-
-				new daum.maps.Marker({
-					map: map,
-					position: new daum.maps.LatLng(this.parkingLoc.lat, this.parkingLoc.lng),
-					title: '목동 공영 주차장',
-					image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
-				});
+					map = new daum.maps.Map(container, options),
+					marker = new daum.maps.Marker({
+						map: map,
+						position: new daum.maps.LatLng(this.parkingLoc.lat, this.parkingLoc.lng),
+						title: '목동 공영 주차장',
+						image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
+					}),
+					customOverlay = new daum.maps.CustomOverlay({
+						map: map,
+						position : new daum.maps.LatLng(this.parkingLoc.lat, this.parkingLoc.lng),
+						content : '<div class="marker-info c-m2">목동 공영 주차장</div>',
+						yAnchor: 1
+					});
+					
+				this.map2 = map;
 			},
 			openPopup: function () {
 				this.$el.querySelector('.main').classList.add('hide');
@@ -194,6 +227,12 @@
 			hidePopup: function () {
 				this.$el.querySelector('.popup').classList.remove('show');
 				this.$el.querySelector('.main').classList.remove('hide');
+			},
+			zoomIn: function (map) {
+				map.setLevel(map.getLevel() - 1);
+			},
+			zoomOut: function (map) {
+				map.setLevel(map.getLevel() + 1);
 			}
 		},
 
@@ -225,7 +264,7 @@
 		position: relative;
 
 		width: 100%;
-		height: 268px;
+		height: 290px;
 
 		background-image: url('/src/img/invitation_img_bg.svg');
 
@@ -242,13 +281,13 @@
 
 		background-image: url('/src/img/invitation_img.svg');
 
-		/*z-index: 10;*/
+		z-index: 10;
 	}
 
 	.jw-eyes {
 		position:absolute;
-		top: 130px;
-		left: 112px;
+		top: 159.4px;
+		left: 111px;
 
 		width: 32px;
 		height: 16px;
@@ -264,8 +303,8 @@
 
 	.closed-jw-eyes {
 		position:absolute;
-		top: 130px;
-		left: 112px;
+		top: 159.4px;
+		left: 111px;
 
 		width: 32px;
 		height: 16px;
@@ -282,8 +321,8 @@
 
 	.mj-eyes {
 		position:absolute;
-		top: 169px;
-		right: 78px;
+		top: 200px;
+		right: 76.1px;
 
 		width: 30px;
 		height: 15px;
@@ -300,8 +339,8 @@
 
 	.closed-mj-eyes {
 		position:absolute;
-		top: 169px;
-		right: 78px;
+		top: 200px;
+		right: 76.1px;
 
 		width: 30px;
 		height: 15px;
@@ -326,6 +365,8 @@
 		animation-iteration-count: infinite;
 		animation-duration: 0.8s;
 		animation-direction: alternate;
+
+		z-index: 5;
 	}
 
 	.s1 {
@@ -537,21 +578,21 @@
 		top: -10px;
 		left: 185px;
 
-		animation-delay: 5s;
+		animation-delay: -5s;
 	}
 
 	.f15 {
 		top: -10px;
 		left: 210px;
 
-		animation-delay: 1.5s;
+		animation-delay: -1.5s;
 	}
 
 	.f16 {
 		top: -10px;
 		left: 235px;
 
-		animation-delay: 7s;
+		animation-delay: -7s;
 	}
 
 	.f17 {
@@ -612,22 +653,23 @@
 	.child {
 		margin-left: 10px;
 
+		font-size: 14px;
 		color: #84b6de;
 	}
 
 	.divider {
-		width: 16px;
-		height: 0;
+		width: 31px;
+		height: 16px;
 
-		border-top: 1px solid #505050;
+		background-image: url('/src/img/flower_line.svg');
 
-		margin: 40px auto 0 auto;
+		margin: 33px auto 0 auto;
 	}
 
 	.map-wrapper {
 		position: relative;
 
-		margin-top: 40px;
+		margin-top: 33px;
 
 		text-align: center;
 	}
@@ -655,6 +697,109 @@
 		height: 290px;
 
 		z-index: 10;
+	}
+
+	.marker-info {
+		position: relative;
+		bottom: 49px;
+		width: 110px;
+		height: 39px;
+
+		font-size: 12px;
+		text-align: center;
+		color: #464646;
+		line-height: 2.3;
+
+		background-image: url('/src/img/marker_popup.svg');
+	}
+
+	.zoom {
+		position: absolute;
+		bottom: 8px;
+		right: 8px;
+
+		width: 35px;
+		height: 69px;
+
+		border-radius: 2px;
+
+		background-color: #fff;
+
+		z-index: 11;
+	}
+
+	.zoom:after {
+		position: absolute;
+		top: 50%;
+		left: 0;
+
+		content: '';
+
+		transform: translateY(-50%);
+
+		height: 0;
+		width: 35px;
+
+		border-top: 1px solid #dbdde0;
+	}
+
+	.plus {
+		position: relative;
+
+		width: 35px;
+		height: 34px;
+	}
+
+	.plus:before {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		content: '';
+
+		transform: translate(-50%, -50%);
+
+		height: 0;
+		width: 12px;
+
+		border-top: 2px solid #787878;
+	}
+
+	.plus:after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		content: '';
+
+		transform: translate(-50%, -50%);
+
+		height: 12px;
+		width: 0;
+
+		border-right: 2px solid #787878;
+	}
+
+	.minus {
+		position: relative;
+
+		width: 35px;
+		height: 33px;
+	}
+
+	.minus:before {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		content: '';
+
+		transform: translate(-50%);
+
+		height: 0;
+		width: 12px;
+
+		border-top: 2px solid #787878;
 	}
 
 	.map {
@@ -691,85 +836,70 @@
 		color: #fff;
 	}
 
+	dt, dd {
+		display: inline-block;
+
+		margin: 0;
+		padding: 0;
+
+		font-weight: 500;
+	}
+
 	.loc-desc {
-		padding: 0 16px;
+		padding: 0 20px;
 
 		margin-top: 30px;
 	}
 
-	.sub-name {
-		font-weight: 600;
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
+	.name {
+		font-size: 12px;
+		color: #a0a0a0;
+		line-height: 1.5;
 
-		margin-top: 30px;
-		margin-bottom: 10px;
+		width: 34px;
 	}
 
-	.sub-desc {
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
+	.desc {
+		font-size: 12px;
+		color: #464646;
+		line-height: 1.5;
+
+		margin-left: 12px;
+		margin-bottom: 14px;
 	}
 
-	.bus-name {
-		font-weight: 600;
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
-
-		margin-top: 20px;
-		margin-bottom: 10px;
-	}
-
-	.bus-desc {
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
-	}
-
-	.parking-name {
-		font-weight: 600;
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
-
-		margin-top: 20px;
-		margin-bottom: 10px;
-	}
-
-	.parking-desc {
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
-
-		margin-bottom: 8px;
+	.phone-number a {
+		font-size: 12px;
+		color: #464646;
+		line-height: 1.5;
 	}
 
 	.parking-desc2 {
 		font-size: 12px;
-		color: #4b5262;
+		color: #464646;
 		line-height: 1;
+
+		margin: 7px 0 0 20px;
 	}
 
 	.publick-parking-area-link {
-		font-size: 14px;
-		color: #ff8f98;
-		line-height: 1;
-		line-height: 14px;
+		font-size: 12px;
+		color: #84b6de;
+		line-height: 1.5;
 
-		margin-top: 20px;
-		margin-bottom: 50px;
+		height: 18px;
+
+		margin: 9px 0 31px 27px;
 
 		cursor: pointer;
 	}
 
 	.arrow {
 		display: inline-block;
+		vertical-align: -1px;
 
-		width: 7px;
-		height: 12px;
+		width: 6px;
+		height: 10px;
 
 		margin-left: 5px;
 
@@ -792,7 +922,7 @@
 		}
 
 		to {
-			transform: translate(100px, 280px);
+			transform: translate(100px, 320px);
 		}
 	}
 
@@ -833,32 +963,51 @@
 	}
 
 	.pbpa-desc {
-		padding: 0 16px;
+		margin-top: 34px;
 
-		margin-top: 48px;
+		text-align: center;
+	}
+
+	.link2 {
+		position: absolute;
+		top: 75px;
+		left: 0;
+
+		width: 320px;
+		height: 290px;
+
+		z-index: 10;
 	}
 
 	.map2 {
-		width: 288px;
-		height: 198px;
+		width: 320px;
+		height: 290px;
+
+		margin-top: 9px;
+	}
+
+	.map2-1 {
+		bottom: 135px;
 	}
 
 	.pbpa-name {
-		font-weight: 600;
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
+		text-align: left;
+		font-size: 17px;
+		color: #464646;
+		line-height: 1.55;
 
-		margin-top: 20px;
-		margin-bottom: 10px;
+		margin-top: 21px;
+		margin-left: 20px;
 	}
 
 	.pbpa-address {
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
+		text-align: left;
+		font-size: 12px;
+		color: #464646;
+		line-height: 1.5;
 
-		margin-bottom: 40px;
+		margin-left: 20px;
+		margin-bottom: 62px;
 	}
 
 	.close {
