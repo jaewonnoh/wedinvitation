@@ -27,5 +27,5 @@ app.get('/',  (req, res) => {
 app.use('/src', express.static(__dirname + '/src'));
 
 server.listen(80,  () => {
-  console.log('Example app listening on port 80!');
+  console.log('JW\'s app listening on port 80!');
 });

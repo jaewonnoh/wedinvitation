@@ -13,25 +13,38 @@
 				</div>
 			</div>
 			<div class="content">
-				<span class="date">2017.11.04(토) 12:00PM</span>
-				<span class="location">세븐스프링스 목동점</span>
-				<span class="greeting">평생을 같이하고 싶은 사람을 만나 한 가정을 이루게 되었습니다. 오셔서 저희의 시작을 지켜봐 주시고 축하해 주시면 감사하겠습니다.</span>
+				<h1 class="title">초대합니다.</h1>
+				<span class="greeting">평생을 같이하고 싶은 사람을 만나<br />한 가정을 이루게 되었습니다.<br />오셔서 저희의 앞날을 축복해 주시고<br />격려해 주시길 소망합니다.</span>
+				<div class="f-tree">
+					<span class="tree">노경수, 서정자의 장남 <span class="child">재원</span></span><br />
+					<span class="tree">강성문, 김정자의 차녀 <span class="child">민주</span></span>
+				</div>
 			</div>
 			<div class="divider"></div>
-			<div class="loc-desc">
-				<div class="name">세븐스프링스 목동점</div>
-				<div class="address">서울시 양천구 목동동로 293 현대 41타워 41층</div>
-				<div class="phone">02-2168-2511</div>
+			<div class="map-wrapper">
+				<div class="map-title">오시는 길</div>
+				<span class="map-desc">지도를 터치하시면 다음지도로 연결됩니다.</span>
+				<div class="link" @click="linkToDaumMap('sv')"></div>
 				<div class="map"></div>
-				<div class="sub-name">지하철</div>
-				<div class="sub-desc">오목교역(목동운동장앞) 2번출구, 도보 10분</div>
-				<div class="bus-name">버스</div>
-				<div class="bus-desc">간선: 571, 603 | 지선: 6624, 6627, 6637</div>
-				<div class="parking-name">지하철</div>
-				<div class="parking-desc">2시간 무료</div>
-				<div class="parking-desc2">(주차공간 부족시 목동 공영주차장을 이용해 주세요.)</div>
-				<div class="publick-parking-area-link" @click="openPopup">목동 공영주차창 지도 보기<div class="arrow"></div></div>
-			</div>	
+			</div>
+			<div class="wed-loc">
+				<div class="date">2017년 11월 4일 토요일 낮 12시</div>
+				<div class="loc">세븐스프링스 목동</div> 
+			</div>
+			<dl class="loc-desc">
+				<dt class="parking-name">주소</dt>
+				<dd class="parking-desc">서울시 양천구 목동동로 293 현대 41타워 41층</dd>
+				<dt class="parking-name">전화</dt>
+				<dd class="parking-desc"><a href="tel+0319768300">02.2168.2511</a></dd>
+				<dt class="sub-name">지하철</dt>
+				<dd class="sub-desc">오목교역(목동운동장앞) 2번출구, 도보 10분</dd>
+				<dt class="bus-name">버스</dt>
+				<dd class="bus-desc">간선: 571, 603 | 지선: 6624, 6627, 6637</dd>
+				<dt class="parking-name">지하철</dt>
+				<dd class="parking-desc">2시간 무료</dd>
+			</dl>	
+			<div class="parking-desc2">(주차공간 부족시 목동 공영주차장을 이용해 주세요.)</div>
+			<div class="publick-parking-area-link" @click="openPopup">목동 공영주차창 지도 보기<div class="arrow"></div></div>
 		</div>
 		<div class="popup">
 			<div class="pbpa-desc">
@@ -48,16 +61,36 @@
 	export default {
 		name: 'basement',
 		props: {
+			loc: {
+				type: Object,
+				default: function() {
+					return {
+						name: '목동 41타워 41층 세븐스프링스',
+						lat: 37.5281527,
+						lng: 126.87574569999992	
+					};
+				}
+			},
+			parkingLoc: {
+				type: Object,
+				default: function() {
+					return {
+						name: '목동 공영 주차장',
+						lat: 37.528899,
+						lng: 126.878523
+					};
+				}
+			},
 			flowers: {
 				type: Array,
 				default: function() {
-					return new Array(19)
+					return new Array(19);
 				}
 			},
 			stars: {
 				type: Array,
 				default: function() {
-					return new Array(8)
+					return new Array(8);
 				}
 			}
 		},
@@ -113,24 +146,35 @@
 					}
 				}, 100);
 			},
+			linkToDaumMap: function (location) {
+				let loc;
+				if (location === 'sv') {
+					loc = this.loc;
+				} else {
+					loc = this.parkingLoc;
+				}
+				console.log(this.loc);
+				window.open(`http:\/\/map.daum.net\/link\/map\/${loc.name},${loc.lat},${loc.lng}`, '_blank');
+			},
 			setMap: function () {
 				const container = this.$el.querySelector('.map'),
 					options = {
-						center: new daum.maps.LatLng(37.5281527, 126.87574569999992),
+						center: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
 						level: 4
 					},
 					map = new daum.maps.Map(container, options);
 
 				new daum.maps.Marker({
 					map: map,
-					position: new daum.maps.LatLng(37.5281527, 126.87574569999992),
-					title: '현대 41타워 41층'
+					position: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
+					title: '현대 41타워 41층',
+					image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
 				});
 			},
 			setMap2: function () {
 				const container = this.$el.querySelector('.map2'),
 					options = {
-						center: new daum.maps.LatLng(37.528899, 126.878523),
+						center: new daum.maps.LatLng(this.parkingLoc.lat, this.parkingLoc.lng),
 						level: 5,
 						draggable: false
 					},
@@ -138,8 +182,9 @@
 
 				new daum.maps.Marker({
 					map: map,
-					position: new daum.maps.LatLng(37.528899, 126.878523),
-					title: '목동 공영 주차장'
+					position: new daum.maps.LatLng(this.parkingLoc.lat, this.parkingLoc.lng),
+					title: '목동 공영 주차장',
+					image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
 				});
 			},
 			openPopup: function () {
@@ -197,7 +242,7 @@
 
 		background-image: url('/src/img/invitation_img.svg');
 
-		z-index: 10;
+		/*z-index: 10;*/
 	}
 
 	.jw-eyes {
@@ -397,7 +442,7 @@
 		top: -10px;
 		left: -140px;
 
-		animation-delay: 4s
+		animation-delay: -4s
 	}
 
 	.f2 {
@@ -406,28 +451,28 @@
 
 		z-index: 15;
 
-		animation-delay: 6.5s;
+		animation-delay: -6.5s;
 	}
 
 	.f3 {
 		top: -10px;
 		left: -90px;
 
-		animation-delay: 3.5s;
+		animation-delay: -3.5s;
 	}
 
 	.f4 {
 		top: -10px;
 		left: -65px;
 
-		animation-delay: 2s;
+		animation-delay: -2s;
 	}
 
 	.f5 {
 		top: -10px;
 		left: -40px;
 
-		animation-delay: 6s;
+		animation-delay: -6s;
 
 		z-index: 15;
 	}
@@ -436,35 +481,35 @@
 		top: -10px;
 		left: -15px;
 
-		animation-delay: 3.5s;
+		animation-delay: -3.5s;
 	}
 
 	.f7 {
 		top: -10px;
 		left: 10px;
 
-		animation-delay: 1s;
+		animation-delay: -1s;
 	}
 
 	.f8 {
 		top: -10px;
 		left: 35px;
 
-		animation-delay: 6s;
+		animation-delay: -6s;
 	}
 
 	.f9 {
 		top: -10px;
 		left: 60px;
 
-		animation-delay: 0.2s;
+		animation-delay: -0.2s;
 	}
 
 	.f10 {
 		top: -10px;
 		left: 85px;
 
-		animation-delay: 4.5s;
+		animation-delay: -4.5s;
 	}
 
 	.f11 {
@@ -529,85 +574,125 @@
 	}
 
 	.content {
-		margin-top: 20px;
+		margin-top: 31px;
 
 		padding: 0 16px;
 
 		text-align: center;
 	}
 
-	.date {
-		font-weight: 700;
-		color: #4b5262;
-		font-size: 14px;
-		text-align: left;
-		line-height: 1;
-
-		margin-right: 6px;
-	}
-
-	.location {
-		font-weight: 400;
-		color: #4b5262;
-		font-size: 14px;
-		text-align: left;
-		line-height: 1;
+	.title {
+		font-weight: 500;
+		color: #464646;
+		font-size: 18px;
+		line-height: 1.47;
 	}
 
 	.greeting {
 		width: 261px;
+		height: 105px;
 
-		color: #7d8daa;
+		color: #999;
 		font-size: 14px;
-		text-align: left;
-		line-height: 1.6;
+		line-height: 1.89;
 
-		margin-top: 21px;
+		margin-top: 20px;
+	}
+
+	.f-tree {
+		margin: 30px auto 0 auto;
+	}
+
+	.tree {
+		font-size: 14px;
+		line-height: 1.6;
+		color: #464646;
+	}
+
+	.child {
+		margin-left: 10px;
+
+		color: #84b6de;
 	}
 
 	.divider {
-		width: 288px;
+		width: 16px;
 		height: 0;
 
-		border-top: 1px dashed #dcdcdc;
+		border-top: 1px solid #505050;
 
-		margin: 29.8px auto 0 auto;
+		margin: 40px auto 0 auto;
+	}
+
+	.map-wrapper {
+		position: relative;
+
+		margin-top: 40px;
+
+		text-align: center;
+	}
+
+	.map-title {
+		font-size: 18px;
+		line-height: 1.24;
+		color: #464646;
+	}
+
+	.map-desc {
+		font-size: 12px;
+		line-height: 1.5;
+		color: #a0a0a0;
+
+		margin-top: 14px;
+	}
+
+	.link {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 320px;
+		height: 290px;
+
+		z-index: 10;
+	}
+
+	.map {
+		width: 320px;
+		height: 290px;
+
+		margin-top: 10px;
+
+		z-index: 1;
+	}
+
+	.wed-loc {
+		width: 100%;
+		height: 81px;
+
+		padding-top: 25px;
+
+		background-color: #acd3ec;
+
+		text-align: center;
+	}
+
+	.date {
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 1.47;
+		color: #fff;
+	}
+
+	.loc {
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 1.44;
+		color: #fff;
 	}
 
 	.loc-desc {
 		padding: 0 16px;
-
-		margin-top: 30px;
-	}
-
-	.name {
-		font-weight: 600;
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
-
-		margin-bottom: 12px;
-	}
-
-	.address {
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
-
-		margin-bottom: 12px;	
-	}
-
-	.phone {
-		font-size: 14px;
-		color: #4b5262;
-		line-height: 1;
-
-		text-decoration: underline;
-	}
-
-	.map {
-		width: 288px;
-		height: 198px;
 
 		margin-top: 30px;
 	}

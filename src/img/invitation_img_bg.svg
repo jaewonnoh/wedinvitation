@@ -1,17 +1,18 @@
-<svg id="레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 750 630">
+<svg id="bg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 290">
   <defs>
     <style>
       .cls-1 {
-        fill: url(#무제_그라디언트_28);
+        fill: url(#무제_그라디언트_394);
       }
     </style>
-    <linearGradient id="무제_그라디언트_28" data-name="무제 그라디언트 28" x1="375" y1="-40.4" x2="375" y2="658.84" gradientTransform="translate(-4.69 5.84) rotate(-0.89)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#6588ce"/>
-      <stop offset="0.47" stop-color="#a6ade2"/>
-      <stop offset="0.82" stop-color="#d0c5ef"/>
-      <stop offset="0.99" stop-color="#e0cef4"/>
+    <linearGradient id="무제_그라디언트_394" data-name="무제 그라디언트 394" x1="159.88" y1="-3.56" x2="159.88" y2="282.07" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#80b3dc"/>
+      <stop offset="0.18" stop-color="#93c1e3"/>
+      <stop offset="0.51" stop-color="#afd5ed"/>
+      <stop offset="0.79" stop-color="#c0e1f3"/>
+      <stop offset="1" stop-color="#c6e5f5"/>
     </linearGradient>
   </defs>
   <title>invitation_img_bg</title>
-  <rect class="cls-1" x="-11" y="-30" width="772" height="672.67" transform="translate(4.78 -5.76) rotate(0.89)"/>
+  <rect class="cls-1" x="-1" y="-2.31" width="321.76" height="295"/>
 </svg>
