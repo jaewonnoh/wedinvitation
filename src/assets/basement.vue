@@ -13,7 +13,7 @@
 				</div>
 			</div>
 			<div class="content">
-				<h1 class="title">초대합니다.</h1>
+				<h1 class="title">초대합니다</h1>
 				<span class="greeting">평생을 같이하고 싶은 사람을 만나<br />한 가정을 이루게 되었습니다.<br />오셔서 저희의 앞날을 축복해 주시고<br />격려해 주시길 소망합니다.</span>
 				<div class="f-tree">
 					<span class="tree">노경수, 서정자의 장남<span class="child">재원</span></span><br />
@@ -41,7 +41,7 @@
 				<dt class="name">주소</dt>
 				<dd class="desc">서울시 양천구 목동동로 293 현대 41타워 41층</dd>
 				<dt class="phone name">전화</dt>
-				<dd class="phone-number desc"><a href="tel:0319768300">02. 2168. 2511</a></dd><br />
+				<dd class="phone-number desc"><a href="tel:0221682511">02. 2168. 2511</a></dd><br />
 				<dt class="sub name">지하철</dt>
 				<dd class="sub desc">오목교역(목동운동장앞) 2번출구, 도보 10분</dd><br />
 				<dt class="bus name">버스</dt>
