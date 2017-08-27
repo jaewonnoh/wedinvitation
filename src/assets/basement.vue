@@ -27,8 +27,10 @@
 				<div class="link" @click="linkToDaumMap('svs')"></div>
 				<div class="map"></div>
 				<div class="zoom map1">
-					<div class="plus" @click="zoomIn(map)"></div>
-					<div class="minus" @click="zoomOut(map)"></div>
+					<div class="control-wrapper">
+						<div class="plus" @click="zoomIn(map)"></div>
+						<div class="minus" @click="zoomOut(map)"></div> 
+					</div>
 				</div>
 			</div>
 			<div class="wed-loc">
@@ -46,7 +48,7 @@
 				<dd class="bus desc">간선: 571, 603 | 지선: 6624, 6627, 6637</dd><br />
 				<dt class="parking name">주차장</dt>
 				<dd class="parking desc">2시간 무료</dd>
-			</dl>	
+			</dl>   
 			<div class="parking-desc2">* 주차공간 부족시 목동 공영주차장을 이용해 주세요.</div>
 			<div class="publick-parking-area-link" @click="openPopup">목동 공영주차창 지도 보기<div class="arrow"></div></div>
 		</div>
@@ -56,8 +58,10 @@
 				<div class="link2" @click="linkToDaumMap('pp')"></div>
 				<div class="map2"></div>
 				<div class="zoom map2-1">
-					<div class="plus" @click="zoomIn(map2)"></div>
-					<div class="minus" @click="zoomOut(map2)"></div>
+					<div class="control-wrapper">
+						<div class="plus" @click="zoomIn(map2)"></div>
+						<div class="minus" @click="zoomOut(map2)"></div> 
+					</div>
 				</div>
 				<div class="pbpa-name">목동 공영주차장</div>
 				<div class="pbpa-address">서울시 양천구 목동 915 (현대백화점 옆)</div>
@@ -77,7 +81,7 @@
 					return {
 						name: '목동 41타워 41층 세븐스프링스',
 						lat: 37.5281527,
-						lng: 126.87574569999992	
+						lng: 126.87574569999992 
 					};
 				}
 			},
@@ -129,7 +133,7 @@
 
 				for (i = 0; i < this.flowers.length; i++) {
 					if (Math.random() > 0.66) {
-						this.$el.querySelectorAll('.flowers')[i].classList.add('big');	
+						this.$el.querySelectorAll('.flowers')[i].classList.add('big');  
 						this.$el.querySelectorAll('.flowers')[i].style.top = '-15px';
 					}
 					this.$el.querySelectorAll('.flowers')[i].classList.add(`f${i+1}`);
@@ -148,7 +152,7 @@
 				setTimeout(function () {
 					const mj = setInterval(function () {
 						that.closeEyes(that.$el.querySelector('.mj-eyes'), 2);
-					}, 3000);	
+					}, 3000);   
 				}, 1000);
 			},
 			closeEyes: function (target, cnt) {
@@ -228,7 +232,7 @@
 				if (map.name === 'svs') {
 					map.setLevel(map.getLevel() - 1, {
 						anchor:new daum.maps.LatLng(this.loc.lat, this.loc.lng)
-					});	
+					}); 
 				} else {
 					map.setLevel(map.getLevel() - 1);
 				}
@@ -237,7 +241,7 @@
 				if (map.name === 'svs') {
 					map.setLevel(map.getLevel() + 1, {
 						anchor:new daum.maps.LatLng(this.loc.lat, this.loc.lng)
-					});	
+					}); 
 				} else {
 					map.setLevel(map.getLevel() + 1);
 				}
@@ -317,7 +321,7 @@
 		width: 32px;
 		height: 16px;
 
-		background-image: url('/src/img/jw_eyes2.svg');	
+		background-image: url('/src/img/jw_eyes2.svg'); 
 		background-repeat: no-repeat;
 
 		z-index: 9;
@@ -382,7 +386,7 @@
 		left: 25px;
 
 		width: 9px;
-		height: 9px;	
+		height: 9px;    
 	}
 
 	.s2 {
@@ -390,7 +394,7 @@
 		left: 103px;
 
 		width: 5px;
-		height: 5px;	
+		height: 5px;    
 
 		animation-delay: 0.2s;
 	}
@@ -400,7 +404,7 @@
 		right: 72px;
 
 		width: 7px;
-		height: 7px;	
+		height: 7px;    
 
 		animation-delay: 0.8s;
 	}
@@ -410,7 +414,7 @@
 		left: 16px;
 
 		width: 5px;
-		height: 5px;	
+		height: 5px;    
 
 		animation-delay: 0.5s;
 	}
@@ -420,7 +424,7 @@
 		right: 15px;
 
 		width: 9px;
-		height: 9px;	
+		height: 9px;    
 
 		animation-delay: 0.2s;
 	}
@@ -430,7 +434,7 @@
 		left: 56px;
 
 		width: 7px;
-		height: 7px;	
+		height: 7px;    
 
 		animation-delay: 0.7s;
 	}
@@ -440,7 +444,7 @@
 		right: 115px;
 
 		width: 5px;
-		height: 5px;	
+		height: 5px;    
 
 		animation-delay: 0.3s;
 	}
@@ -450,7 +454,7 @@
 		right: 32px;
 
 		width: 5px;
-		height: 5px;	
+		height: 5px;    
 
 		animation-delay: 0.1s;
 	}
@@ -723,17 +727,11 @@
 
 	.zoom {
 		position: absolute;
-		bottom: 8px;
-		right: 8px;
+		bottom: 0px;
+		right: 0px;
 
-		width: 35px;
-		height: 69px;
-
-		border-radius: 2px;
-
-		background-color: #fff;
-
-		box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.45);
+		width: 51px;
+		height: 85px;
 
 		z-index: 11;
 	}
@@ -741,11 +739,11 @@
 	.zoom:after {
 		position: absolute;
 		top: 50%;
-		left: 0;
+		left: 50%;
 
 		content: '';
 
-		transform: translateY(-50%);
+		transform: translate(-50%, -50%);
 
 		height: 0;
 		width: 35px;
@@ -753,16 +751,38 @@
 		border-top: 1px solid #dbdde0;
 	}
 
+	.control-wrapper {
+		position: relative;
+		top: 8px;
+		left: 50%;
+
+		transform: translateX(-50%);
+
+		width: 35px;
+		height: 69px;
+
+		border-radius: 2px;
+
+		box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.45);
+
+		background-color: #fff;
+	}
+
 	.plus {
 		position: relative;
 
 		width: 35px;
 		height: 34px;
+
+		padding: 8px 8px 0 8px;
+
+		top: -8px;
+		left: -8px;
 	}
 
 	.plus:before {
 		position: absolute;
-		top: 50%;
+		top: 57%;
 		left: 50%;
 
 		content: '';
@@ -777,7 +797,7 @@
 
 	.plus:after {
 		position: absolute;
-		top: 50%;
+		top: 57%;
 		left: 50%;
 
 		content: '';
@@ -795,11 +815,16 @@
 
 		width: 35px;
 		height: 33px;
+
+		padding: 0 8px 8px 8px;
+		
+		bottom: 8px;
+		left: -8px;
 	}
 
 	.minus:before {
 		position: absolute;
-		top: 50%;
+		top: 43%;
 		left: 50%;
 
 		content: '';
@@ -996,7 +1021,7 @@
 	}
 
 	.map2-1 {
-		bottom: 135px;
+		bottom: 127px;
 	}
 
 	.pbpa-name {
