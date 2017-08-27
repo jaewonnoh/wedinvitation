@@ -39,7 +39,7 @@
 			</div>
 			<dl class="loc-desc">
 				<dt class="name">주소</dt>
-				<dd class="desc">서울시 양천구 목동동로 293 현대 41타워 41층</dd>
+				<dd class="desc">서울시 양천구 목동동로 293 현대 41타워 41층</dd><br />
 				<dt class="phone name">전화</dt>
 				<dd class="phone-number desc"><a href="tel:0221682511">02. 2168. 2511</a></dd><br />
 				<dt class="sub name">지하철</dt>
@@ -263,8 +263,6 @@
 		margin: 0 auto;
 
 		overflow: hidden;
-
-		max-width: 320px;
 	}
 
 	span {
@@ -295,6 +293,8 @@
 		height: 100%;
 
 		background-image: url('/src/img/invitation_img.svg');
+
+		background-size: 100% 100%;
 
 		z-index: 10;
 	}
@@ -832,7 +832,7 @@
 	}
 
 	.map {
-		width: 320px;
+		width: 100%;
 		height: 290px;
 
 		margin-top: 10px;
@@ -977,8 +977,6 @@
 
 		overflow: hidden;
 
-		max-width: 320px;
-
 		opacity: 0;
 
 		z-index: -1;
@@ -1008,7 +1006,7 @@
 	}
 
 	.map2 {
-		width: 320px;
+		width: 100%;
 		height: 290px;
 
 		margin-top: 9px;
