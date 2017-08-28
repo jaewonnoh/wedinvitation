@@ -852,7 +852,7 @@
 
 		padding-top: 25px;
 
-		background-color: #B2D7F1;
+		background-color: #ADD5EF;
 
 		text-align: center;
 	}
