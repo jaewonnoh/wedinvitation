@@ -923,7 +923,7 @@
 
 		height: 18px;
 
-		margin: 9px 0 31px 27px;
+		padding: 9px 0 31px 27px;
 
 		cursor: pointer;
 	}
