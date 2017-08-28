@@ -868,6 +868,8 @@
 		font-size: 18px;
 		line-height: 1.44;
 		color: #fff;
+
+		margin-top: 4px;
 	}
 
 	dt, dd {
