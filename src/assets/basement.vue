@@ -2,6 +2,7 @@
 	<div class="wrapper">
 		<div class="main">
 			<div class="img">
+				<div class="date-img"></div>
 				<div class="person"></div>
 				<div class="closed-eyes-jw"></div>
 				<div class="closed-eyes-mj"></div>
@@ -203,7 +204,13 @@
 						map: map,
 						position: new daum.maps.LatLng(this.loc.lat, this.loc.lng),
 						title: '현대 41타워 41층',
-						image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
+						image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(24, 35), new daum.maps.Point(12, 35))
+					}),
+					customOverlay = new daum.maps.CustomOverlay({
+						map: map,
+						position : new daum.maps.LatLng(this.loc.lat, this.loc.lng),
+						content : '<div class="marker-info">세븐스프링스 목동</div>',
+						yAnchor: 1
 					});
 					map.name = 'svs';
 
@@ -221,7 +228,7 @@
 						map: map,
 						position: new daum.maps.LatLng(this.parkingLoc.lat, this.parkingLoc.lng),
 						title: '목동 공영 주차장',
-						image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(32, 46), new daum.maps.Point(16, 46))
+						image: new daum.maps.MarkerImage('/src/img/marker.svg' , new daum.maps.Size(24, 35), new daum.maps.Point(12, 35))
 					}),
 					customOverlay = new daum.maps.CustomOverlay({
 						map: map,
@@ -292,6 +299,21 @@
 		background-image: url('/src/img/invitation_img_bg.svg');
 
 		overflow: hidden;
+	}
+
+	.date-img {
+		position: absolute;
+		top: 0;
+		left: 50%;
+
+		transform: translateX(-50%);
+
+		width: 320px;
+		height: 137px;
+
+		background-image: url('/src/img/invitation_img_date.svg');
+
+		z-index: 10;
 	}
 
 	.person {
@@ -689,16 +711,18 @@
 
 	.marker-info {
 		position: relative;
-		bottom: 49px;
+		bottom: 32px;
 		width: 110px;
 		height: 39px;
 
 		font-size: 12px;
 		text-align: center;
 		color: #464646;
-		line-height: 2.3;
+		line-height: 2.5;
 
 		background-image: url('/src/img/marker_popup.svg');
+		background-repeat: no-repeat;
+		background-position: center center;
 	}
 
 	.zoom {
