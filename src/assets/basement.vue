@@ -3,10 +3,8 @@
 		<div class="main">
 			<div class="img">
 				<div class="person"></div>
-				<div class="jw-eyes"></div>
-				<div class="closed-jw-eyes"></div>
-				<div class="mj-eyes"></div>
-				<div class="closed-mj-eyes"></div>
+				<div class="closed-eyes-jw"></div>
+				<div class="closed-eyes-mj"></div>
 				<div class="stars" v-for="(val, index) in stars"></div>
 				<div class="flowers" v-for="(val, index) in flowers">
 					<div class="flower"></div>
@@ -149,26 +147,38 @@
 				const that = this;
 
 				const jw = setInterval(function () {
-					that.closeEyes(that.$el.querySelector('.jw-eyes'), 1);
+					that.closeEyes('jw', 1);
 				}, 3000);
 
 				setTimeout(function () {
 					const mj = setInterval(function () {
-						that.closeEyes(that.$el.querySelector('.mj-eyes'), 2);
-					}, 3000);   
+						that.closeEyes('mj', 2);
+					}, 3000);
 				}, 1000);
 			},
-			closeEyes: function (target, cnt) {
+			closeEyes: function (mode, cnt) {
 				const that = this;
-				target.classList.add('hide');
-				target.nextSibling.classList.add('show');
+				this.$el.querySelector('.person').classList.add('hide');
+				if (mode !== 'mj') {
+					this.$el.querySelector('.closed-eyes-mj').classList.add('hide');
+					this.$el.querySelector('.closed-eyes-jw').classList.remove('hide');
+				} else {
+					this.$el.querySelector('.closed-eyes-mj').classList.remove('hide');
+					this.$el.querySelector('.closed-eyes-jw').classList.add('hide');
+				}
 				setTimeout(function () {
-					target.classList.remove('hide');
-					target.nextSibling.classList.remove('show');
+					that.$el.querySelector('.person').classList.remove('hide');
+					if (mode !== 'mj') {
+						that.$el.querySelector('.closed-eyes-mj').classList.remove('hide');
+						that.$el.querySelector('.closed-eyes-jw').classList.add('hide');
+					} else {
+						that.$el.querySelector('.closed-eyes-mj').classList.add('hide');
+						that.$el.querySelector('.closed-eyes-jw').classList.remove('hide');
+					}	
 					cnt--;
 					if (cnt > 0) {
 						setTimeout(function () {
-							that.closeEyes(target, cnt);
+							that.closeEyes(mode, cnt);
 						}, 100);
 					}
 				}, 100);
@@ -299,74 +309,46 @@
 		z-index: 10;
 	}
 
-	.jw-eyes {
-		position:absolute;
-		top: 144.4px;
-		left: 111px;
-
-		width: 32px;
-		height: 16px;
-
-		background-image: url('/src/img/jw_eyes1.svg');
-
-		z-index: 11;
-	}
-
-	.jw-eyes.hide {
+	.person.hide {
 		display: none;
 	}
 
-	.closed-jw-eyes {
-		position:absolute;
-		top: 144.4px;
-		left: 111px;
+	.closed-eyes-jw {
+		position: absolute;
+		top: 0;
+		left: 0;
 
-		width: 32px;
-		height: 16px;
+		width: 100%;
+		height: 100%;
 
-		background-image: url('/src/img/jw_eyes2.svg'); 
-		background-repeat: no-repeat;
+		background-image: url('/src/img/invitation_img_jw_blink.svg');
+
+		background-size: 100% 100%;
 
 		z-index: 9;
 	}
 
-	.closed-jw-eyes.show {
-		z-index: 11;
-	}
-
-	.mj-eyes {
-		position:absolute;
-		top: 183px;
-		right: 76.1px;
-
-		width: 30px;
-		height: 15px;
-
-		position:absolute;
-		background-image: url('/src/img/mj_eyes1.svg');
-
-		z-index: 11;
-	}
-
-	.mj-eyes.hide {
+	.closed-eyes-jw.hide {
 		display: none;
 	}
 
-	.closed-mj-eyes {
-		position:absolute;
-		top: 183px;
-		right: 76.1px;
+	.closed-eyes-mj {
+		position: absolute;
+		top: 0;
+		left: 0;
 
-		width: 30px;
-		height: 15px;
+		width: 100%;
+		height: 100%;
 
-		background-image: url('/src/img/mj_eyes2.svg');
+		background-image: url('/src/img/invitation_img_mj_blink.svg');
 
-		z-index: 9;
+		background-size: 100% 100%;
+
+		z-index: 8;
 	}
 
-	.closed-mj-eyes.show {
-		z-index: 11;
+	.closed-eyes-mj.hide {
+		display: none;
 	}
 
 	.stars {

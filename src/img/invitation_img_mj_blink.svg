@@ -72,6 +72,22 @@
       .cls-18 {
         fill: #ffeac5;
       }
+
+      .cls-19 {
+        mask: url(#mask);
+      }
+
+      .cls-20 {
+        mask: url(#mask-2-2);
+      }
+
+      .cls-21 {
+        mask: url(#mask-3);
+      }
+
+      .cls-22 {
+        mask: url(#mask-4-2);
+      }
     </style>
     <linearGradient id="무제_그라디언트_722" data-name="무제 그라디언트 722" x1="121.45" y1="184.1" x2="121.45" y2="236.53" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#e2e4e0"/>
@@ -79,8 +95,28 @@
       <stop offset="0.65" stop-color="#fbfbfb"/>
       <stop offset="1" stop-color="#fff"/>
     </linearGradient>
+    <mask id="mask" x="228.08" y="190.86" width="12.78" height="1.31" maskUnits="userSpaceOnUse">
+      <g id="mask-2">
+        <polygon id="path-1" class="cls-1" points="228.09 190.86 228.09 192.16 234.47 192.16 240.86 192.16 240.86 190.86 228.09 190.86"/>
+      </g>
+    </mask>
+    <mask id="mask-2-2" x="239.54" y="189.95" width="3.24" height="2.22" maskUnits="userSpaceOnUse">
+      <g id="mask-4">
+        <polygon id="path-3" class="cls-1" points="239.54 189.95 242.78 189.95 242.78 192.16 241.16 192.16 239.54 192.16 239.54 189.95"/>
+      </g>
+    </mask>
+    <mask id="mask-3" x="214.63" y="190.86" width="12.78" height="1.31" maskUnits="userSpaceOnUse">
+      <g id="mask-6">
+        <polygon id="path-5" class="cls-1" points="227.41 190.86 227.41 192.16 221.02 192.16 214.63 192.16 214.63 190.86 227.41 190.86"/>
+      </g>
+    </mask>
+    <mask id="mask-4-2" x="212.71" y="189.95" width="3.24" height="2.22" maskUnits="userSpaceOnUse">
+      <g id="mask-8">
+        <polygon id="path-7" class="cls-1" points="215.96 189.95 212.72 189.95 212.72 192.16 214.34 192.16 215.96 192.16 215.96 189.95"/>
+      </g>
+    </mask>
   </defs>
-  <title>invitation_img</title>
+  <title>invitation_img_mj_blink</title>
   <g id="character">
     <path class="cls-1" d="M185.3,282.91c2.21,0,3.9-1.49,5.39-3.32,20.58-25.41,29.56-41.86,29.66-42,2.32-2.39-4.61-5.52-7-7.83s-6.5-2.5-8.52.14c-5.88,7.7-10.21,16.88-24.9,44.27a6,6,0,0,0,5.38,8.72Z"/>
     <path class="cls-2" d="M228.47,208.41c5.46-.47,16.74-.93,14.31,3.67-3,5.76-.09,11.83-.09,11.83-1.57,4.62-7.07,6.8-11.4,7.81v.86s-1.13-.06-2.83-.31c-1.69.26-2.83.31-2.83.31v-.86c-4.33-1-9.83-3.19-11.4-7.81,0,0,2.94-6.07-.09-11.83C211.74,207.48,223,207.94,228.47,208.41Z"/>
@@ -255,23 +291,43 @@
       </g>
     </g>
   </g>
-  <g id="eyes">
+  <g id="eyes_2">
+    <g id="Page-1">
+      <g id="_1" data-name="1">
+        <g id="mj_eyes2" data-name="mj eyes2">
+          <g>
+            <g id="Page-1-2" data-name="Page-1">
+              <g id="Group-3">
+                <g class="cls-19">
+                  <path id="Fill-1" class="cls-11" d="M240.21,192.16H228.74a.65.65,0,1,1,0-1.31h11.47a.65.65,0,0,1,0,1.31"/>
+                </g>
+              </g>
+              <g id="Group-6">
+                <g class="cls-20">
+                  <path id="Fill-4" class="cls-11" d="M240.24,192.16a.69.69,0,0,0,.28-.06l1.84-.81a.7.7,0,0,0-.57-1.29l-1.84.81a.7.7,0,0,0,.28,1.35"/>
+                </g>
+              </g>
+            </g>
+            <g id="Page-1-Copy">
+              <g id="Group-3-2" data-name="Group-3">
+                <g class="cls-21">
+                  <path id="Fill-1-2" data-name="Fill-1" class="cls-11" d="M215.29,192.16h11.47a.65.65,0,1,0,0-1.31H215.29a.65.65,0,0,0,0,1.31"/>
+                </g>
+              </g>
+              <g id="Group-6-2" data-name="Group-6">
+                <g class="cls-22">
+                  <path id="Fill-4-2" data-name="Fill-4" class="cls-11" d="M215.25,192.16a.69.69,0,0,1-.28-.06l-1.84-.81a.7.7,0,0,1,.57-1.29l1.84.81a.7.7,0,0,1-.28,1.35"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
     <g>
       <path class="cls-1" d="M134.46,144.77a7.48,7.48,0,0,0-7,5,7.48,7.48,0,1,0,0,5,7.48,7.48,0,1,0,7-10Z"/>
       <circle class="cls-11" cx="137.23" cy="153.99" r="4.13"/>
       <circle class="cls-11" cx="123.14" cy="153.99" r="4.13"/>
-    </g>
-    <g>
-      <g>
-        <path class="cls-11" d="M240.26,189.42a.69.69,0,0,0,.28-.06l1.82-.8a.7.7,0,1,0-.56-1.28l-1.82.8a.7.7,0,0,0,.28,1.34Z"/>
-        <path class="cls-11" d="M215.24,189.42a.7.7,0,0,0,.28-1.34l-1.82-.8a.7.7,0,1,0-.56,1.28l1.82.8A.7.7,0,0,0,215.24,189.42Z"/>
-      </g>
-      <g>
-        <circle class="cls-1" cx="234.17" cy="191.51" r="6.74"/>
-        <circle class="cls-1" cx="221.01" cy="191.51" r="6.74"/>
-      </g>
-      <circle class="cls-11" cx="219.05" cy="189.23" r="3.72"/>
-      <circle class="cls-11" cx="232.22" cy="189.23" r="3.72"/>
     </g>
   </g>
   <g id="레이어_6" data-name="레이어 6">
