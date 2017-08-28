@@ -633,7 +633,7 @@
 	.title {
 		font-weight: 500;
 		color: #464646;
-		font-size: 18px;
+		font-size: 19px;
 		line-height: 1.47;
 
 		margin: 0;
@@ -644,7 +644,7 @@
 		height: 105px;
 
 		color: #999;
-		font-size: 14px;
+		font-size: 15px;
 		line-height: 1.89;
 
 		margin-top: 20px;
@@ -685,7 +685,7 @@
 	}
 
 	.map-title {
-		font-size: 18px;
+		font-size: 19px;
 		line-height: 1.24;
 		color: #464646;
 	}
