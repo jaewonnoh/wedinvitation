@@ -475,7 +475,7 @@
 		animation-name: rain;
 		animation-timing-function: ease-in;
 		animation-iteration-count: infinite;
-		animation-duration: 8s;
+		animation-duration: 10s;
 
 		z-index: 5;
 
@@ -561,7 +561,7 @@
 	.f9 {
 		left: 60px;
 
-		animation-delay: -0.2s;
+		animation-delay: -9s;
 	}
 
 	.f10 {
@@ -619,7 +619,7 @@
 	.f19 {
 		left: 310px;
 
-		animation-delay: 0.1s;
+		animation-delay: 3.3s;
 	}
 
 	.content {
