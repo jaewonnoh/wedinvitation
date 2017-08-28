@@ -1044,8 +1044,8 @@
 
 	.close {
 		position: absolute;
-		top:16px;
-		right: 16px;
+		top: 6px;
+		right: 6px;
 
 		width: 16px;
 		height: 16px;
@@ -1053,6 +1053,9 @@
 		cursor: pointer;
 
 		background-image: url('/src/img/icon_close.svg');
+		background-repeat: no-repeat;
+		background-position: center center;
+		padding: 10px;
 	}
 
 </style>
